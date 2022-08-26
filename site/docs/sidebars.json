@@ -1,0 +1,84 @@
+{
+  "common": [
+    {
+      "type": "doc",
+      "id": "noslate/overview/intro",
+      "label": "Noslate 是什么？"
+    },
+    {
+      "type": "category",
+      "label": "快速入门",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "noslate/getting_started/docker",
+        "noslate/getting_started/aliyun_fc"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "组件设计",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "noslate/design/alice/intro",
+        "noslate/design/aworker/intro",
+        "noslate/design/turf/intro",
+        "noslate/design/andb/intro"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "基本概念",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "noslate/references/function_profile",
+        "noslate/references/service_profile",
+        "noslate/references/system_config",
+        "noslate/references/envionment_variables",
+        "noslate/references/scale",
+        "noslate/references/warmfork",
+        "noslate/references/sdk",
+        "noslate/references/baas",
+        "noslate/references/gateway"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "教程",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "noslate/tutorials/custom_gateway",
+        "noslate/tutorials/custom_baas"
+      ]
+    },
+    {
+      "type": "doc",
+      "label": "版本历史",
+      "id": "noslate/release_notes"
+    }
+  ],
+  "api": [
+    {
+      "type": "doc",
+      "label": "Aworker",
+      "id": "noslate/api/aworker"
+    },
+    {
+      "type": "doc",
+      "label": "Turf",
+      "id": "noslate/api/turf"
+    },
+    {
+      "type": "category",
+      "label": "Alice",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "noslate/api/sdk"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "common": [
+    {
+      "type": "category",
+      "label": "新手指南",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "intro"
+      ]
+    }
+  ]
+}

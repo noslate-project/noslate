@@ -9,7 +9,7 @@
     "update-hooks-docs": "degit https://github.com/midwayjs/hooks/docs ./docs/hooks --force",
     "format:docs": "prettier docs/*.md --write",
     "swizzle": "docusaurus swizzle",
-    "deploy": "npm run update-hooks-docs && docusaurus deploy",
+    "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",

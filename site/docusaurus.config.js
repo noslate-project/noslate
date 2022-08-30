@@ -13,8 +13,8 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.svg',
-  organizationName: 'noslate', // Usually your GitHub org/user name.
-  projectName: 'Noslate', // Usually your repo name.
+  organizationName: 'AlibabaIncubator', // Usually your GitHub org/user name.
+  projectName: 'noslate', // Usually your repo name.
   stylesheets: ['//at.alicdn.com/t/font_2797741_dnh1sm1jan.css'],
   i18n: {
     defaultLocale: 'zh-cn',
@@ -30,12 +30,6 @@ const config = {
           sidebarPath: require.resolve('./docs/sidebars.json'),
           // Please change this to your repo.
           editUrl: 'https://github.com/AlibabaIncubator/noslate/tree/main/site/',
-          versions: {
-            current: {
-              label: '3.0.0',
-            },
-          },
-          lastVersion: 'current',
           sidebarCollapsed: false,
         },
         theme: {

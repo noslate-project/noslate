@@ -88,7 +88,7 @@ const Button = styled('a', {
   variants: {
     type: {
       main: {
-        backgroundColor: '#007aff',
+        backgroundColor: '#926dde',
         marginRight: 36,
         '@mobile': {
           marginRight: 0,
@@ -96,7 +96,7 @@ const Button = styled('a', {
         },
       },
       secondary: {
-        backgroundColor: '#3a4855',
+        backgroundColor: 'rgb(58, 72, 85)',
       },
     },
   },
@@ -118,6 +118,12 @@ const Icon = styled('i', {
 
 const StarContainer = styled('div', {
   marginTop: 36,
+});
+
+const Lead = styled('span', {
+  fontSize: '1.25rem',
+  marginTop: '2rem',
+  width: '45%',
 });
 
 const targets = [
@@ -142,14 +148,16 @@ export function Splash() {
 
   return (
     <Container>
-      <Title>Noslate</Title>
+      {/* <Title>Noslate</Title> */}
       <SubTitle>
-        Run Code With "
+        Built For "
         {text.split('').map((char, index) => (
           <Description key={char + index}>{char}</Description>
         ))}
         "
       </SubTitle>
+      {/* <Lead><strong>Noslate</strong> 是一个优雅、现代且完全可定制的 Serverless 服务器运行时。</Lead> */}
+      <Lead><strong>Noslate</strong>  is an elegant, modern and fully customizable serverless runtime.</Lead>
       <ButtonGroup>
         <Button type="main" href="/docs/intro">
           Documention

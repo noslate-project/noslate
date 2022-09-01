@@ -50,10 +50,10 @@ const config = {
         },
       ],
       navbar: {
-        title: 'Midway',
+        title: '',
         logo: {
-          alt: 'midway logo',
-          src: 'img/logo.svg',
+          alt: 'noslate logo',
+          src: 'img/logo.png',
         },
         items: [
           ...require('./lib/navbar'),

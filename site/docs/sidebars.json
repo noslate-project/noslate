@@ -9,5 +9,16 @@
         "intro"
       ]
     }
+  ],
+  "andb": [
+    {
+      "type": "category",
+      "label": "通用",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "andb/intro"
+      ]
+    }
   ]
 }

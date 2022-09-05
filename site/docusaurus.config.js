@@ -50,10 +50,10 @@ const config = {
         },
       ],
       navbar: {
-        title: '',
+        title: 'Nsolate',
         logo: {
           alt: 'noslate logo',
-          src: 'img/logo.png',
+          src: 'img/logo.svg',
         },
         items: [
           ...require('./lib/navbar'),

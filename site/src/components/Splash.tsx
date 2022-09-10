@@ -12,9 +12,9 @@ const Container = styled('div', {
   flexDirection: 'column',
   justifyContent: 'center',
   backgroundRepeat: 'no-repeat',
-  // backgroundPosition: '100% 50%'
-  backgroundSize: 'cover',
-  backgroundImage: 'url(https://img.alicdn.com/imgextra/i3/O1CN01U1n8RC1evopP9MIKi_!!6000000003934-2-tps-1440-707.png)',
+  backgroundPosition: '55%',
+  backgroundSize: '1440px',
+  backgroundImage: 'url(https://img.alicdn.com/imgextra/i1/O1CN01aRqS4L1g2WJPfRcOL_!!6000000004084-2-tps-2880-1414.png)',
   '@mobile': {
     alignItems: 'center',
     paddingLeft: 0,
@@ -23,9 +23,9 @@ const Container = styled('div', {
     backgroundImage: 'none',
   },
   ':root[data-theme="dark"] &': {
-    backgroundSize: 'cover',
+    backgroundPosition: 'right',
     backgroundImage:
-      'url(https://img.alicdn.com/imgextra/i4/O1CN012rXL8D1s2lqX6AqdY_!!6000000005709-2-tps-1440-650.png)',
+      'url(https://img.alicdn.com/imgextra/i3/O1CN01hVwXX328xauSWPbci_!!6000000007999-2-tps-2880-1414.png)',
   },
 });
 

@@ -17,7 +17,7 @@
     },
     {
       "type": "category",
-      "label": "组件介绍",
+      "label": "组件设计",
       "collapsed": false,
       "collapsible": false,
       "items": [
@@ -31,7 +31,7 @@
     },
     {
       "type": "category",
-      "label": "概念介绍",
+      "label": "基本概念",
       "collapsed": false,
       "collapsible": false,
       "items": [

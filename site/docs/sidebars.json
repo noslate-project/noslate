@@ -1,24 +1,60 @@
 {
   "common": [
     {
-      "type": "category",
-      "label": "新手指南",
-      "collapsed": false,
-      "collapsible": false,
-      "items": [
-        "intro"
-      ]
-    }
-  ],
-  "andb": [
+      "type": "doc",
+      "id": "overview/intro",
+      "label": "Noslate 是什么？"
+    },
     {
       "type": "category",
-      "label": "通用",
+      "label": "快速入门",
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "andb/intro"
+        "getting_started/aliyun_fc",
+        "getting_started/docker"
       ]
+    },
+    {
+      "type": "category",
+      "label": "组件设计",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "design/noslated",
+        "design/aworker",
+        "design/turf",
+        "design/andb",
+        "design/gateway",
+        "design/baas"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "基本概念",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "references/profile",
+        "references/scale",
+        "references/sdk",
+        "references/nodejs"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "教程",
+      "collapsed": false,
+      "collapsible": false,
+      "items": [
+        "tutorials/custom_gateway",
+        "tutorials/custom_baas"
+      ]
+    },
+    {
+      "type": "doc",
+      "label": "贡献指南",
+      "id": "overview/community"
     }
   ]
 }

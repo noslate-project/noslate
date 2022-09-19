@@ -4,7 +4,14 @@ ARG NOSLATE_URL
 
 FROM --platform=${BUILDPLATFORM:-linux/amd64} node:${NODE_VERSION:-16.15.1}
 
-ENV NODE_VERSION=${NODE_VERSION}
+ENV NOSLATE_PATH=/usr/local/noslate \
+    NOSLATE_WORKDIR=/.noslate \
+    NOSLATE_BIN=${NOSLATE_PATH}/bin \
+    ALICE_WORKDIR=${NOSLATE_WORKDIR}/alice \
+    TURF_WORKDIR=${NOSLATE_WORKDIR}/turf \
+    LIBTURF_PATH=${NOSLATE_WORKDIR}/bin/libturf.so
+
+
 
 
 

@@ -37,7 +37,8 @@
       "items": [
         "references/profile",
         "references/scale",
-        "references/sdk"
+        "references/sdk",
+        "references/nodejs"
       ]
     },
     {

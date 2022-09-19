@@ -2,7 +2,7 @@
   "common": [
     {
       "type": "doc",
-      "id": "intro",
+      "id": "overview/intro",
       "label": "Noslate 是什么？"
     },
     {
@@ -49,7 +49,11 @@
         "tutorials/custom_gateway",
         "tutorials/custom_baas"
       ]
+    },
+    {
+      "type": "doc",
+      "label": "贡献指南",
+      "id": "overview/community"
     }
-
   ]
 }

@@ -13,7 +13,7 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.svg',
-  organizationName: 'AlibabaIncubator', // Usually your GitHub org/user name.
+  organizationName: 'noslate-project', // Usually your GitHub org/user name.
   projectName: 'noslate', // Usually your repo name.
   stylesheets: ['//at.alicdn.com/t/font_2797741_dnh1sm1jan.css'],
   i18n: {
@@ -29,7 +29,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./docs/sidebars.json'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/AlibabaIncubator/noslate/tree/main/site/',
+          editUrl: 'https://github.com/noslate-project/noslate/tree/main/site/',
           sidebarCollapsed: false,
         },
         theme: {
@@ -58,7 +58,7 @@ const config = {
         items: [
           ...require('./lib/navbar'),
           {
-            href: 'https://github.com/AlibabaIncubator/noslate',
+            href: 'https://github.com/noslate-project/noslate',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository',

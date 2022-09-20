@@ -2,7 +2,7 @@
 
 ## Noslate - 轻量 JavaScript Serverless 解决方案
 
-<img width="702" alt="image" src="https://user-images.githubusercontent.com/629202/186866256-4380bc8e-67f8-47a1-86a5-369fe79cbad9.png">
+![](https://user-images.githubusercontent.com/629202/186866256-4380bc8e-67f8-47a1-86a5-369fe79cbad9.png)
 
 Noslate 是由淘宝 Node.js 架构团队开发的一套轻量、开箱即用的 JavaScript Serverless 解决方案，开发者可以轻松的将它部署在自己的服务器或者任意云平台中，让已有的业务代码享受到 Serverless 带来的便捷。
 

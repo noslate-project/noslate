@@ -21,12 +21,12 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "design/noslated",
-        "design/aworker",
-        "design/turf",
-        "design/andb",
-        "design/gateway",
-        "design/baas"
+        "design/noslated/intro",
+        "design/aworker/intro",
+        "design/turf/intro",
+        "design/andb/intro",
+        "design/gateway/intro",
+        "design/baas/intro"
       ]
     },
     {

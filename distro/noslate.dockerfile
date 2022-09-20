@@ -4,6 +4,8 @@ ARG NOSLATE_URL
 
 FROM --platform=${BUILDPLATFORM:-linux/amd64} node:${NODE_VERSION:-16.15.1}
 
+LABEL org.opencontainers.image.authors="noslate-support@@list.alibaba-inc.com"
+
 # set envionment variables
 ENV NOSLATE_PATH=/usr/local/noslate \
     NOSLATE_WORKDIR=/.noslate \

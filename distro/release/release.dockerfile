@@ -1,4 +1,0 @@
-ARG BUILDPLATFORM
-
-FROM --platform=${BUILDPLATFORM:-linux/amd64} node:16.15.1
-

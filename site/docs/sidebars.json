@@ -2,7 +2,7 @@
   "common": [
     {
       "type": "doc",
-      "id": "overview/intro",
+      "id": "noslate/overview/intro",
       "label": "Noslate 是什么？"
     },
     {
@@ -11,8 +11,8 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "getting_started/docker",
-        "getting_started/aliyun_fc"
+        "noslate/getting_started/docker",
+        "noslate/getting_started/aliyun_fc"
       ]
     },
     {
@@ -21,10 +21,10 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "design/alice/intro",
-        "design/aworker/intro",
-        "design/turf/intro",
-        "design/andb/intro"
+        "noslate/design/alice/intro",
+        "noslate/design/aworker/intro",
+        "noslate/design/turf/intro",
+        "noslate/design/andb/intro"
       ]
     },
     {
@@ -33,11 +33,11 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "references/profile",
-        "references/scale",
-        "references/sdk",
-        "references/baas",
-        "references/gateway"
+        "noslate/references/profile",
+        "noslate/references/scale",
+        "noslate/references/sdk",
+        "noslate/references/baas",
+        "noslate/references/gateway"
       ]
     },
     {
@@ -46,31 +46,31 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "tutorials/custom_gateway",
-        "tutorials/custom_baas"
+        "noslate/tutorials/custom_gateway",
+        "noslate/tutorials/custom_baas"
       ]
     },
     {
       "type": "doc",
       "label": "贡献指南",
-      "id": "overview/community"
+      "id": "noslate/overview/community"
     }
   ],
   "api": [
     {
       "type": "doc",
       "label": "Aworker",
-      "id": "api/aworker"
+      "id": "noslate/api/aworker"
     },
     {
       "type": "doc",
       "label": "Turf",
-      "id": "api/turf"
+      "id": "noslate/api/turf"
     },
     {
       "type": "doc",
       "label": "SDK",
-      "id": "api/sdk"
+      "id": "noslate/api/sdk"
     }
   ]
 }

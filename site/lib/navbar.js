@@ -1,19 +1,19 @@
 module.exports = [
   {
     "type": "doc",
-    "docId": "overview/intro",
+    "docId": "noslate/overview/intro",
     "label": "文档",
     "position": "left"
   },
   {
     "type": "doc",
-    "docId": "api/aworker",
+    "docId": "noslate/api/aworker",
     "label": "API References",
     "position": "left"
   },
   {
     "type": "doc",
-    "docId": "design/andb/intro",
+    "docId": "debugger/intro",
     "label": "Debugger",
     "position": "right"
   },

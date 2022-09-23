@@ -56,5 +56,22 @@
       "label": "贡献指南",
       "id": "overview/community"
     }
+  ],
+  "api": [
+    {
+      "type": "doc",
+      "label": "Aworker",
+      "id": "api/aworker"
+    },
+    {
+      "type": "doc",
+      "label": "Turf",
+      "id": "api/turf"
+    },
+    {
+      "type": "doc",
+      "label": "SDK",
+      "id": "api/sdk"
+    }
   ]
 }

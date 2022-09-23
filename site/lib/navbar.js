@@ -1,8 +1,14 @@
 module.exports = [
   {
     "type": "doc",
-    "docId": "design/andb/intro",
+    "docId": "overview/intro",
     "label": "文档",
+    "position": "left"
+  },
+  {
+    "type": "doc",
+    "docId": "api/aworker",
+    "label": "API References",
     "position": "left"
   },
   {

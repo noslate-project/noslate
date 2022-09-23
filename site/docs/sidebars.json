@@ -11,8 +11,8 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "getting_started/aliyun_fc",
-        "getting_started/docker"
+        "getting_started/docker",
+        "getting_started/aliyun_fc"
       ]
     },
     {
@@ -21,12 +21,10 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "design/noslated/intro",
+        "design/alice/intro",
         "design/aworker/intro",
         "design/turf/intro",
-        "design/andb/intro",
-        "design/gateway/intro",
-        "design/baas/intro"
+        "design/andb/intro"
       ]
     },
     {
@@ -38,7 +36,8 @@
         "references/profile",
         "references/scale",
         "references/sdk",
-        "references/nodejs"
+        "references/baas",
+        "references/gateway"
       ]
     },
     {

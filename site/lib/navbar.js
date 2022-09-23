@@ -19,7 +19,7 @@ module.exports = [
   },
   {
     "type": "doc",
-    "docId": "design/andb/intro",
+    "docId": "node_js/index",
     "label": "Node.js 发行版",
     "position": "right"
   },

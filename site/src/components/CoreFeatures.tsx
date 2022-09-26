@@ -87,7 +87,7 @@ function Feature(props: FeatureProps) {
 const featurs = [
   {
     icon: 'icon-huojiancopy',
-    title: 'Cloud Worker',
+    title: 'Serverless Worker',
     description: `全托管 JavaScript 云原生运行时架构`,
   },
   {
@@ -98,7 +98,7 @@ const featurs = [
   },
   {
     icon: 'icon-MPIS-Upgrade',
-    title: 'Node.js Distribution',
+    title: 'Node.js 发行版',
     description: '极致优化 Serverless 弹性，启动较社区快 ~120%',
   },
 ] as FeatureProps[]

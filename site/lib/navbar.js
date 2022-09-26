@@ -2,7 +2,7 @@ module.exports = [
   {
     "type": "doc",
     "docId": "noslate/overview/intro",
-    "label": "Serverless Worker",
+    "label": "Documention",
     "position": "left"
   },
   {
@@ -14,7 +14,7 @@ module.exports = [
   {
     "type": "doc",
     "docId": "node_js/index",
-    "label": "Node.js 发行版",
+    "label": "Node.js Distribution",
     "position": "left"
   },
   {

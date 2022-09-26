@@ -127,10 +127,12 @@ const Lead = styled('span', {
 });
 
 const targets = [
+  'Serverless',
+  'Cloud Native',
+  'Delivery',
   'Web',
-  'Fullstack',
-  'Achitecture',
-  'Serverless'
+  'Reliable',
+  'Density'
 ];
 
 export function Splash() {
@@ -160,7 +162,7 @@ export function Splash() {
       <Lead><strong>Noslate</strong>  is an elegant, modern and fully customizable serverless runtime.</Lead>
       <ButtonGroup>
         <Button type="main" href="/docs/noslate/overview/intro">
-          Documention
+          Quick Start
         </Button>
         <Button type="secondary" href="https://github.com/noslate-project/noslate" target="_blank">
           <Icon className="iconfont icon-github-fill" />

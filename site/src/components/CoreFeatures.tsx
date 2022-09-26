@@ -98,7 +98,7 @@ const featurs = [
   },
   {
     icon: 'icon-MPIS-Upgrade',
-    title: 'Node.js 发行版',
+    title: 'Node.js Distribution',
     description: '极致优化 Serverless 弹性，启动较社区快 ~120%',
   },
 ] as FeatureProps[]

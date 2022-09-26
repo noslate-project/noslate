@@ -87,7 +87,7 @@ function Feature(props: FeatureProps) {
 const featurs = [
   {
     icon: 'icon-huojiancopy',
-    title: 'Cloud Worker',
+    title: 'Serverless Worker',
     description: `全托管 JavaScript 云原生运行时架构`,
   },
   {

@@ -1,8 +1,14 @@
 module.exports = [
   {
     "type": "doc",
+    "docId": "project/intro",
+    "label": "Introduction",
+    "position": "left"
+  },
+  {
+    "type": "doc",
     "docId": "noslate/overview/intro",
-    "label": "Cloud Worker",
+    "label": "Serverless Worker",
     "position": "left"
   },
   {

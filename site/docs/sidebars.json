@@ -80,5 +80,34 @@
         "noslate/api/sdk"
       ]
     }
+  ],
+  "node_js": [
+    {
+      "type": "doc",
+      "label": "发行版介绍",
+      "id": "node_js/index"
+    },
+    {
+      "type": "doc",
+      "label": "用户代码加载加速",
+      "id": "node_js/rrc"
+    },
+    {
+      "type": "doc",
+      "label": "面向平台架构的优化",
+      "id": "node_js/arch"
+    },
+    {
+      "type": "doc",
+      "label": "版本历史",
+      "id": "node_js/versions"
+    }
+  ],
+  "debugger": [
+    {
+      "type": "doc",
+      "label": "Debugger 介绍",
+      "id": "debugger/intro"
+    }
   ]
 }

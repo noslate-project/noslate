@@ -1,4 +1,4 @@
-# 通过 Docker 部署 Noslate
+# 通过 Docker 部署
 
 Noslate 可以通过 Docker 镜像的形式快速部署到已有的集群架构中，配合上层调度实现更细粒度的调度以及高密度部署。
 

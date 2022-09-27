@@ -7,8 +7,8 @@ module.exports = [
   },
   {
     "type": "doc",
-    "docId": "noslate/overview/intro",
-    "label": "Serverless Worker",
+    "docId": "noslate_workers/intro",
+    "label": "Noslate Workers",
     "position": "left"
   },
   {
@@ -25,7 +25,7 @@ module.exports = [
   },
   {
     "type": "doc",
-    "docId": "noslate/api/aworker",
+    "docId": "api/aworker",
     "label": "API References",
     "position": "right"
   }

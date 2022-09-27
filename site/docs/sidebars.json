@@ -2,8 +2,8 @@
   "common": [
     {
       "type": "doc",
-      "id": "noslate/overview/intro",
-      "label": "Serverless Worker 是什么？"
+      "id": "noslate_workers/intro",
+      "label": "Noslate Workers 是什么？"
     },
     {
       "type": "category",
@@ -11,8 +11,8 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "noslate/getting_started/docker",
-        "noslate/getting_started/aliyun_fc"
+        "noslate_workers/getting_started/docker",
+        "noslate_workers/getting_started/aliyun_fc"
       ]
     },
     {
@@ -21,10 +21,9 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "noslate/design/alice/intro",
-        "noslate/design/aworker/intro",
-        "noslate/design/turf/intro",
-        "noslate/design/andb/intro"
+        "noslate_workers/noslated/intro",
+        "noslate_workers/aworker/intro",
+        "noslate_workers/turf/intro"
       ]
     },
     {
@@ -33,15 +32,15 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "noslate/references/function_profile",
-        "noslate/references/service_profile",
-        "noslate/references/system_config",
-        "noslate/references/envionment_variables",
-        "noslate/references/scale",
-        "noslate/references/warmfork",
-        "noslate/references/sdk",
-        "noslate/references/baas",
-        "noslate/references/gateway"
+        "noslate_workers/references/function_profile",
+        "noslate_workers/references/service_profile",
+        "noslate_workers/references/system_config",
+        "noslate_workers/references/envionment_variables",
+        "noslate_workers/references/scale",
+        "noslate_workers/references/warmfork",
+        "noslate_workers/references/sdk",
+        "noslate_workers/references/baas",
+        "noslate_workers/references/gateway"
       ]
     },
     {
@@ -50,26 +49,26 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "noslate/tutorials/custom_gateway",
-        "noslate/tutorials/custom_baas"
+        "noslate_workers/tutorials/custom_gateway",
+        "noslate_workers/tutorials/custom_baas"
       ]
     },
     {
       "type": "doc",
       "label": "版本历史",
-      "id": "noslate/release_notes"
+      "id": "noslate_workers/release_notes"
     }
   ],
   "api": [
     {
       "type": "doc",
       "label": "Aworker",
-      "id": "noslate/api/aworker"
+      "id": "api/aworker"
     },
     {
       "type": "doc",
       "label": "Turf",
-      "id": "noslate/api/turf"
+      "id": "api/turf"
     },
     {
       "type": "category",
@@ -77,7 +76,7 @@
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "noslate/api/sdk"
+        "api/sdk"
       ]
     }
   ],

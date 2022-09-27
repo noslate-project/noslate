@@ -1,0 +1,52 @@
+[
+  {
+    "name": "hello-html",
+    "runtime": "aworker",
+    "url": "file:///workspace/dev-size/noslate/noslate/gateway/server/functions/hello-html",
+    "sourceFile": "index.js",
+    "signature": "md5:12345",
+    "worker": {
+      "reservationCount": 0
+    }
+  },
+  {
+    "name": "hello-json",
+    "runtime": "aworker",
+    "url": "file:///workspace/dev-size/noslate/noslate/gateway/server/functions/hello-json",
+    "sourceFile": "index.js",
+    "signature": "md5:12345",
+    "worker": {
+      "reservationCount": 0
+    }
+  },
+  {
+    "name": "fetch-html",
+    "runtime": "aworker",
+    "url": "file:///workspace/dev-size/noslate/noslate/gateway/server/functions/fetch-html",
+    "sourceFile": "index.js",
+    "signature": "md5:12345",
+    "worker": {
+      "reservationCount": 0
+    }
+  },
+  {
+    "name": "LEB128",
+    "runtime": "aworker",
+    "url": "file:///workspace/dev-size/noslate/noslate/gateway/server/functions/LEB128",
+    "sourceFile": "index.js",
+    "signature": "md5:12345",
+    "worker": {
+      "reservationCount": 0
+    }
+  },
+  {
+    "name": "redirect-url",
+    "runtime": "aworker",
+    "url": "file:///workspace/dev-size/noslate/noslate/gateway/server/functions/redirect-url",
+    "sourceFile": "index.js",
+    "signature": "md5:12345",
+    "worker": {
+      "reservationCount": 0
+    }
+  }
+]

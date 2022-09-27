@@ -1,0 +1,7 @@
+.vscode
+.clangd
+.idea
+
+gateway/node_modules/
+
+gateway/package-lock.json

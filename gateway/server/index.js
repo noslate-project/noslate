@@ -9,23 +9,26 @@ const _ = require('lodash');
 const ejs = require('ejs');
 const address = require('address');
 
-const PROJECT_DIR = '../../../alice/build/';
-const FUNCTION_PROFILE_FILE = 'MOCK_FUNCTION_PROFILE.json';
+const {
+    ALICE_WORKDIR,
+    PORT
+} = process.env;
 
-const functionsDir = path.join(__dirname, 'functions/');
+const BUILD_DIR = path.join(ALICE_WORKDIR, 'build/');
+
+const FUNCTION_PROFILE_FILE = 'MOCK_FUNCTION_PROFILE.json';
 const functionProfileFile = path.join(__dirname, FUNCTION_PROFILE_FILE);
+const functionsDir = path.join(__dirname, 'functions/');
+
 let FUNCTION_PROFILE = JSON.parse(fs.readFileSync(functionProfileFile));
 
-const Logger = require(path.join(PROJECT_DIR, 'lib/logger'));
-Logger.setSink(Logger.getPrettySink());
-
-const { AliceAgent } = require(path.join(PROJECT_DIR, 'sdk'));
+const { AliceAgent } = require(path.join(BUILD_DIR, 'sdk'));
 
 class Gateway {
     constructor() {
-        this.port = process.env.port || 3000;
+        this.port = PORT || 3000;
 
-        this.logger = Logger.get('Gateway');
+        this.logger = console;
 
         this.agent = new AliceAgent();
 
@@ -257,7 +260,7 @@ class Gateway {
                 await fs.promises.writeFile(functionProfileFile, JSON.stringify(function_profiles, null, 2));
 
                 if (_profile.url.startsWith('file')) {
-                    const codePath = url.fileURLToPath(_profile.url)
+                    const codePath = url.fileURLToPath(_profile.url);
                     await fs.promises.rm(codePath, {
                         recursive: true,
                         force: true,

@@ -184,7 +184,7 @@ function decode() {
     </div>
     </main>
     <p class="text-center text-gray-400">
-        基于 alinode-cloud (serverless worker) 开发
+        基于 Noslate Workers 开发
     </p>
 </body>
 </html>`

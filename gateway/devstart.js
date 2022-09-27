@@ -2,20 +2,28 @@
 
 const cp = require('child_process');
 const path = require('path');
+const assert = require('assert');
 
-process.env.TURF_WORKDIR = path.join(__dirname, '../../alice/.turf');
-process.env.EAGLEEYE_STATLOG_FORCE_STOP = 'true';
+const {
+  ALICE_WORKDIR,
+  NOSLATE_WORKDIR
+} = process.env;
+
+assert(ALICE_WORKDIR);
+assert(NOSLATE_WORKDIR);
+
+process.env.TURF_WORKDIR = path.join(ALICE_WORKDIR, '.turf');
 
 const httpd = cp.spawn(path.join(__dirname, 'server/httpd'), { stdio: 'pipe', detached: false });
 listen('httpd     ', httpd);
 
-const control = cp.spawn(path.join(__dirname, '../../alice/bin/control_plane'), { stdio: 'pipe', detached: false });
+const control = cp.spawn(path.join(ALICE_WORKDIR, 'bin/control_plane'), { stdio: 'pipe', detached: false });
 listen('control   ', control);
 
-const data = cp.spawn(path.join(__dirname, '../../alice/bin/data_plane'), { stdio: 'pipe', detached: false });
+const data = cp.spawn(path.join(ALICE_WORKDIR, 'bin/data_plane'), { stdio: 'pipe', detached: false });
 listen('data      ', data);
 
-const turfd = cp.spawn(path.join(__dirname, '../../alice/bin/turf'), ['-D', '-f'], { stdio: 'ignore', detached: false });
+const turfd = cp.spawn(path.join(ALICE_WORKDIR, 'bin/turf'), ['-D', '-f'], { stdio: 'ignore', detached: false });
 listen('turfd     ', turfd);
 
 process.on('SIGINT', () => {

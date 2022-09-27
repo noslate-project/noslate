@@ -1,0 +1,8 @@
+{
+  "name": "noslate-custom-gateway",
+  "dependencies": {
+    "express": "^4.18.1",
+    "sequelize": "^6.23.1",
+    "sqlite3": "^5.1.1"
+  }
+}

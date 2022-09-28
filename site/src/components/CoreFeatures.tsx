@@ -79,7 +79,7 @@ function Feature(props: FeatureProps) {
     <FeatureContainer isMiddle={props.isMiddle}>
       <Icon className={`iconfont ${props.icon}`} />
       <Title>{props.title}</Title>
-      <Description>{props.description}</Description>
+      <Description style={{fontSize: 20, textAlign: 'center'}} >{props.description}</Description>
     </FeatureContainer>
   )
 }
@@ -88,25 +88,25 @@ const featurs = [
   {
     icon: 'icon-huojiancopy',
     title: 'Noslate Workers',
-    description: `WinterCG 规范的 Web 标准轻量运行时`,
+    description: `WinterCG 规范的，轻量 Web API 标准运行时`,
   },
   {
     icon: 'icon-nintendogamecube',
     title: 'Noslate Debugger',
-    description: '面向崩溃和异常场景 Corefile 离线诊断',
+    description: '面向崩溃和异常场景的，Corefile 离线诊断',
     isMiddle: true
   },
   {
     icon: 'icon-MPIS-Upgrade',
     title: 'Node.js Distribution',
-    description: '极致优化 Serverless 弹性，启动较社区快 ~120%',
+    description: '极致优化 Serverless 弹性的，冷启动快 ~120%',
   },
 ] as FeatureProps[]
 
 export function CoreFeatures() {
   return (
     <Container>
-      {featurs.map((feature) => <Feature  key={feature.title} {...feature} />)}
+      {featurs.map((feature) => <Feature key={feature.title} {...feature} />)}
     </Container>
   )
 }

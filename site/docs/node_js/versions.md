@@ -1,5 +1,9 @@
-# Noslate Node.js 发行版
+# 版本历史
 
-Noslate Node.js 发行版主要是面向 Serverless 弹性场景进行优化，提供了极致的弹性优化。主要包括 Require 关系加速、Bytecode Cache。目前阿里云函数计算的 Node.js 14/16 即采用该发行版。
+版本原则，追踪 LTS 版本更新提供版本，当前自 Node.js 16 开始提供发行版。版本历史如下：
 
+### v16.15.1
 
+* 更新原因：初始版本
+* 下载地址：
+  * [https://github.com/noslate-project/node/releases/tag/noslate-v16.15.1-release](https://github.com/noslate-project/node/releases/tag/noslate-v16.15.1-release)

@@ -1,10 +1,14 @@
-# 什么是 Noslate Debugger ?
+# Noslate Debugger 介绍
 
-注意：当前版本文档为预览版。
+***注意：当前版本文档为预览版，不够完善还请谅解。***
 
-Noslate Debugger 是适用于 gdb/lldb 的 v8 离线调试工具，一般用于调试 v8 的 core 文件。
+<div style={{maxWidth: "800px"}} >
 
-下文使用 `andb` 代指 Noslate Debugger，主要因为本产品内部代号原名为 Alinode Debugger，不易修改。
+![Noslate Debugger](../assets/noslate-db.png)
+
+</div>
+
+Noslate Debugger 是适用于 gdb/lldb 的 v8 离线调试工具，一般用于调试 v8 的 core 文件。下文会使用 `andb` 代指本项目，为 Alibaba Noslate Debugger 的缩写。
 
 
 ### 主要功能

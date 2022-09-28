@@ -3,7 +3,7 @@
     {
       "type": "doc",
       "id": "noslate_workers/intro",
-      "label": "Noslate Workers 是什么？"
+      "label": "Noslate Workers 介绍"
     },
     {
       "type": "category",
@@ -83,8 +83,8 @@
   "node_js": [
     {
       "type": "doc",
-      "label": "发行版介绍",
-      "id": "node_js/index"
+      "label": "Noslate Node.js 发行版介绍",
+      "id": "node_js/intro"
     },
     {
       "type": "doc",
@@ -105,8 +105,20 @@
   "debugger": [
     {
       "type": "doc",
-      "label": "Debugger 介绍",
+      "label": "Noslate Debugger 介绍",
       "id": "debugger/intro"
+    },
+    {
+      "type": "doc",
+      "label": "Arthur 高效的 Corefile 生成器",
+      "id": "debugger/arthur"
+    }
+  ],
+  "project": [
+    {
+      "type": "doc",
+      "label": "Noslate 项目整体介绍",
+      "id": "project/intro"
     }
   ]
 }

@@ -14,12 +14,12 @@ module.exports = [
   {
     "type": "doc",
     "docId": "debugger/intro",
-    "label": "Debugger",
+    "label": "Noslate Debugger",
     "position": "left"
   },
   {
     "type": "doc",
-    "docId": "node_js/index",
+    "docId": "node_js/intro",
     "label": "Node.js Distribution",
     "position": "left"
   },

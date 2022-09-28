@@ -7,7 +7,6 @@ const url = require('url');
 const express = require('express');
 const _ = require('lodash');
 const ejs = require('ejs');
-const address = require('address');
 
 const {
     ALICE_WORKDIR,
@@ -286,11 +285,6 @@ class Gateway {
     }
 
     async start() {
-        await this.agent.setPlatformEnvironmentVariables([{
-            key: 'POD_IP',
-            value: address.ip(),
-        }]);
-
         await this.initHTTPServer();
         await this.setFunctionProfile(FUNCTION_PROFILE, 'IMMEDIATELY');
 

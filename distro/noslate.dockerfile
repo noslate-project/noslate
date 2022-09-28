@@ -26,6 +26,7 @@ RUN apt-get update && \
 # mkdirs
 RUN mkdir -p ${NOSLATE_PATH} && \
     mkdir -p ${NOSLATE_WORKDIR} && \
+    mkdir -p ${NOSLATE_LOGDIR} && \
     mkdir -p ${ALICE_WORKDIR} && \
     mkdir -p ${ALICE_WORKDIR}/caches && \
     mkdir -p ${ALICE_WORKDIR}/bundles && \
@@ -48,4 +49,7 @@ RUN curl -sLo ./noslate.tar.gz ${NOSLATE_URL} && \
     ln -s ${NOSLATE_BIN}/aworker /usr/local/bin/aworker && \
     ln -s ${NOSLATE_BIN}/aworker.shell /usr/local/bin/aworker.shell && \
     ln -s ${NOSLATE_BIN}/node /usr/local/bin/node && \
+    ln -s ${NOSLATE_BIN}/aworker ${TURF_WORKDIR}/runtime/aworker/bin/aworker && \
+    ln -s ${NOSLATE_BIN}/node ${TURF_WORKDIR}/runtime/nodejs-v16/bin/node && \
+    ln -s ${NOSLATE_BIN}/libturf.so ${TURF_WORKDIR}/libturf.so && \
     rm -f noslate.tar.gz

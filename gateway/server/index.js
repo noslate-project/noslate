@@ -36,9 +36,20 @@ class Gateway {
         }
     }
 
-    render = (template, context) => {
+    render(template, context) {
         return template.replace(/\{\{(.*?)\}\}/g, (_, key) => context[key] || '');
     };
+
+    renderUrls(profile) {
+        profile.forEach(v => {
+            if (v.url.startsWith('http:')) {
+                return;
+            }
+
+            const tmpPath = this.render(v.url, { FUNCTION_DIR });
+            v.url = url.pathToFileURL(path.normalize(tmpPath));
+        });
+    }
 
     getFunctionHeaders(req) {
         let ret;
@@ -205,14 +216,7 @@ class Gateway {
     async start() {
         await this.initHTTPServer();
 
-        MOCK_FUNCTION_PROFILE.forEach(v => {
-            if (v.url.startsWith('http:')) {
-                return;
-            }
-
-            const tmpPath = this.render(v.url, { FUNCTION_DIR: FUNCTION_DIR });
-            v.url = url.pathToFileURL(path.normalize(tmpPath));
-        });
+        this.renderUrls(MOCK_FUNCTION_PROFILE);
 
         await this.setFunctionProfile(MOCK_FUNCTION_PROFILE, 'IMMEDIATELY');
 
@@ -226,17 +230,8 @@ class Gateway {
             if (filename !== path.basename(MOCK_FUNCTION_PROFILE_PATH)) {
                 return;
             }
-
-            const tmp = JSON.parse(await fs.promises.readFile(MOCK_FUNCTION_PROFILE_PATH, 'utf-8'));
-
-            tmp.forEach(v => {
-                if (v.url.startsWith('http:')) {
-                    return;
-                }
-
-                const tmpPath = this.render(v.url, { FUNCTION_DIR: FUNCTION_DIR });
-                v.url = url.pathToFileURL(path.normalize(tmpPath));
-            });
+            const profile = JSON.parse(await fs.promises.readFile(MOCK_FUNCTION_PROFILE_PATH, 'utf-8'));
+            this.renderUrls(profile);
 
             if (!_.isEqual(tmp, MOCK_FUNCTION_PROFILE)) {
                 MOCK_FUNCTION_PROFILE = tmp;

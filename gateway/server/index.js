@@ -10,11 +10,11 @@ const _ = require('lodash');
 const ejs = require('ejs');
 
 const {
-    ALICE_WORKDIR,
+    NOSLATE_PATH,
     PORT
 } = process.env;
 
-const BUILD_DIR = path.join(ALICE_WORKDIR, 'build/');
+const BUILD_DIR = path.join(NOSLATE_PATH, 'build/');
 
 const FUNCTION_PROFILE_FILE = 'MOCK_FUNCTION_PROFILE.json';
 const functionProfileFile = path.join(__dirname, FUNCTION_PROFILE_FILE);

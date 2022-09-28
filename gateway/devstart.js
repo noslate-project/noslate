@@ -6,24 +6,24 @@ const assert = require('assert');
 
 const {
   ALICE_WORKDIR,
-  NOSLATE_WORKDIR
+  NOSLATE_PATH
 } = process.env;
 
 assert(ALICE_WORKDIR);
-assert(NOSLATE_WORKDIR);
+assert(NOSLATE_PATH);
 
-process.env.TURF_WORKDIR = path.join(ALICE_WORKDIR, '.turf');
+process.env.TURF_WORKDIR = path.join(NOSLATE_PATH, '.turf');
 
 const httpd = cp.spawn(path.join(__dirname, 'server/httpd'), { stdio: 'pipe', detached: false });
 listen('httpd     ', httpd);
 
-const control = cp.spawn(path.join(ALICE_WORKDIR, 'bin/control_plane'), { stdio: 'pipe', detached: false });
+const control = cp.spawn(path.join(NOSLATE_PATH, 'bin/control_plane'), { stdio: 'pipe', detached: false });
 listen('control   ', control);
 
-const data = cp.spawn(path.join(ALICE_WORKDIR, 'bin/data_plane'), { stdio: 'pipe', detached: false });
+const data = cp.spawn(path.join(NOSLATE_PATH, 'bin/data_plane'), { stdio: 'pipe', detached: false });
 listen('data      ', data);
 
-const turfd = cp.spawn(path.join(ALICE_WORKDIR, 'bin/turf'), ['-D', '-f'], { stdio: 'ignore', detached: false });
+const turfd = cp.spawn(path.join(NOSLATE_PATH, 'bin/turf'), ['-D', '-f'], { stdio: 'ignore', detached: false });
 listen('turfd     ', turfd);
 
 process.on('SIGINT', () => {

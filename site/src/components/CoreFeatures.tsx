@@ -87,12 +87,12 @@ function Feature(props: FeatureProps) {
 const featurs = [
   {
     icon: 'icon-huojiancopy',
-    title: 'Serverless Worker',
-    description: `全托管 JavaScript 云原生运行时架构`,
+    title: 'Noslate Workers',
+    description: `WinterCG 规范的 Web 标准轻量运行时`,
   },
   {
     icon: 'icon-nintendogamecube',
-    title: 'Debugger',
+    title: 'Noslate Debugger',
     description: '面向崩溃和异常场景 Corefile 离线诊断',
     isMiddle: true
   },

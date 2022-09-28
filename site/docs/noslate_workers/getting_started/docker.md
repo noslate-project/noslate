@@ -58,16 +58,16 @@ start_turfd() {
     nohup ${ALINODE_CLOUD_BIN}/turf -D -f >${TURF_LOG} 2>&1
 }
 ```
-#### 启动 Alice Panels
-Alice 包含 DataPanel 和 Control Panel 两部分，具体细节可以参考[Alice 介绍](noslate_workers/design/alice/intro)，两者的启动顺序没有要求。
+#### 启动 Noslated
+Noslated 包含 Data Plane 和 Control Plane 两部分，具体细节可以参考[Noslated 介绍](noslate_workers/noslated/intro)，两者的启动顺序没有要求。
 ```
 start_panels() {
-    node ${ALINODE_CLOUD_BIN}/data_panel &
-    node ${ALINODE_CLOUD_BIN}/control_panel &
+    node ${ALINODE_CLOUD_BIN}/data_plane &
+    node ${ALINODE_CLOUD_BIN}/control_plane &
 }
 ```
 #### 启动 Gateway
-Gateway 会与 DataPanel 和 ControlPanel 建立连接，建议放在最后启动，同时用来保持容器运行。
+Gateway 会与 Data Plane 和 Control Plane 建立连接，建议放在最后启动，同时用来保持容器运行。
 ```
 start_gateway() {
     node ${GATEWAY_PATH}/server.js

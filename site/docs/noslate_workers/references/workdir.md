@@ -5,7 +5,7 @@
     |-- /bin
     |    |-- turf                       turf 的二进制
     |    |-- node                       携带发行的 node
-    |    |-- shinki                     携带发行的 shinki，serverless worker
+    |    |-- aworker                    携带发行的 aworker
     |-- /scheduler/lib/turf/            agent 调用 turf 的 JS wrapper
     |-- /delegate
     |-- index.js
@@ -23,13 +23,16 @@
     |    |    |    |-- code
     |    |    |    |    |-- f.yaml          用户 config
     |    |    |    |    |-- config.json   用户 config
-    |    |    |    |-- config.json        对函数来说唯一，由 alice 创建与管理
+    |    |    |    |-- config.json        对函数来说唯一，由 Noslated 创建与管理
     |-- /turf
     |    |-- turf.sock
     |    |-- /runtime                    TURF 运行时可执行文件
-    |    |    |-- node-v6                可以作为一个 rootfs，对应 config.json | turf.runtime
+    |    |    |-- nodejs-v16                可以作为一个 rootfs，对应 config.json | turf.runtime
     |    |    |     |-- bin
     |    |    |     |    |-- node
+    |    |    |-- aworker                可以作为一个 rootfs，对应 config.json | turf.runtime
+    |    |    |     |-- bin
+    |    |    |     |    |-- aworker
     |    |-- /overlay
     |    |    |-- <id>                     容器 ID，对容器来说唯一
     |    |    |     |-- data               用户修改的文件

@@ -68,7 +68,7 @@ await bufferFromStream(response);
 ```
 
 ## 更新函数/服务路由配置
-Gateway 除了需要处理请求的进出，还需要将函数/服务路由配置及时更新到 [Alice](noslate_workers/design/alice/intro) 中：
+Gateway 除了需要处理请求的进出，还需要将函数/服务路由配置及时更新到 [Noslated](noslate_workers/noslated/intro) 中：
 ```
 await agent.setFunctionProfile(config);
 await agent.setServiceProfile(config);

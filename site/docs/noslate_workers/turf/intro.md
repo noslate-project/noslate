@@ -12,7 +12,7 @@
 离性，牢笼一般强调其的限制，而容器强调它的整体交付。所以 docker 以集装箱式的交付简化运维提高效率，但未必最适合
 Noslate 的场景。
 
-turf 的主要设计目标是提供给 Noslate Worker 去承载 JavaScript 函数，所以它有一些新的特点：
+turf 的主要设计目标是提供给 Noslate Workers 去承载 JavaScript 函数，所以它有一些新的特点：
 - JavaScript 代码运行在 VM 里，它并不直接调用系统调用；
 - JavaScript 依赖库可能很多很大，基本都会依赖于外部服务；
 - JavaScript 广泛运用于 Web Server、Server Side Rendering 等服务上；

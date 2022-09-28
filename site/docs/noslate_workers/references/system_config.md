@@ -15,9 +15,9 @@
 |panel|[PanelConfig](#panel)|panel 配置|
 |controlPanel|[ControlPanelConfig](#control-panel)|control panel 配置|
 |virtualMemoryPoolSize|number|虚拟内存池大小，用于超卖|
-|worker|[WorkerConfig](#worker)|worker 默认配置|
+|worker|[WorkerConfig](#worker)|工作实例默认配置|
 |systemCircuitBreaker|[SystemCircuitBreaker](#systemcircuitbreaker)|系统断路器配置|
-|delegate|[Delegate](#delegate)|worker 代理配置|
+|delegate|[Delegate](#delegate)|工作实例代理配置|
 
 ## Panel
 |配置名称|类型|描述|

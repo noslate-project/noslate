@@ -15,14 +15,13 @@ const {
 } = process.env;
 
 const BUILD_DIR = path.join(NOSLATE_PATH, 'build/');
-
-const FUNCTION_PROFILE_FILE = 'MOCK_FUNCTION_PROFILE.json';
-const functionProfileFile = path.join(__dirname, FUNCTION_PROFILE_FILE);
-const functionsDir = path.join(__dirname, 'functions/');
-
-let FUNCTION_PROFILE = JSON.parse(fs.readFileSync(functionProfileFile));
-
+const FUNCTION_DIR = path.join(__dirname, 'functions/');
 const { AliceAgent } = require(path.join(BUILD_DIR, 'sdk'));
+
+const MOCK_FUNCTION_PROFILE_FILE_NAME = 'MOCK_FUNCTION_PROFILE.json';
+const MOCK_FUNCTION_PROFILE_PATH = path.join(__dirname, MOCK_FUNCTION_PROFILE_FILE_NAME);
+let MOCK_FUNCTION_PROFILE = JSON.parse(fs.readFileSync(MOCK_FUNCTION_PROFILE_PATH));
+
 
 class Gateway {
     constructor() {
@@ -32,10 +31,11 @@ class Gateway {
 
         this.agent = new AliceAgent();
 
-        if (!fs.existsSync(functionsDir)) {
-            fs.mkdirSync(functionsDir);
+        if (!fs.existsSync(FUNCTION_DIR)) {
+            fs.mkdirSync(FUNCTION_DIR);
         }
     }
+
     getFunctionHeaders(req) {
         let ret;
         const b64 = req.get('x-alice-headers');

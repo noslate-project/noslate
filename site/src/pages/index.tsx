@@ -21,9 +21,11 @@ export default function Home(): JSX.Element {
         <Splash />
         <CoreFeatures />
         <EssentialsComponents />
+        {/*
         <Example />
         <Recommend />
-        <UsedBy />
+        <UsedBy /> 
+        */}
         <Footer />
       </div>
     </Layout>

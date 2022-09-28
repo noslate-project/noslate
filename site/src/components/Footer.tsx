@@ -3,7 +3,7 @@ import { VAR } from '../var'
 import { styled } from '../styled'
 
 const Container = styled('div', {
-  backgroundColor: VAR.background,
+  backgroundColor: 'var(--ifm-color-background-secondary)',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -29,9 +29,6 @@ const Tip = styled('span', {
 export function Footer () {
   return (
     <Container>
-      <Title>
-        Develop.  Build.  Ship.
-      </Title>
       <Tip>
         Noslate Project 2022 - NOW &nbsp;&nbsp;&nbsp;&nbsp;  MIT License
       </Tip>

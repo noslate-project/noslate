@@ -17,11 +17,10 @@
     },
     {
       "type": "category",
-      "label": "组件设计",
+      "label": "组件介绍",
       "collapsed": false,
       "collapsible": false,
       "items": [
-        "noslate_workers/noslated/intro",
         {
           "type": "category",
           "label": "Aworker",
@@ -32,6 +31,7 @@
             "noslate_workers/aworker/web-api"
           ]
         },
+        "noslate_workers/noslated/intro",
         "noslate_workers/turf/intro"
       ]
     },
@@ -47,7 +47,7 @@
         "noslate_workers/references/envionment_variables",
         "noslate_workers/references/scale",
         "noslate_workers/references/sdk",
-        "noslate_workers/references/baas",
+        "noslate_workers/references/outbound",
         "noslate_workers/references/gateway"
       ]
     },
@@ -58,7 +58,7 @@
       "collapsible": false,
       "items": [
         "noslate_workers/tutorials/custom_gateway",
-        "noslate_workers/tutorials/custom_baas"
+        "noslate_workers/tutorials/custom_outbound"
       ]
     },
     {

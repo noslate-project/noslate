@@ -10,7 +10,7 @@
 
 依托淘宝 Node.js 团队自研的 Web-interoperable 运行时 Aworker，提供了一个 <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#926DDE' }}>轻量</span>，<span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#926DDE' }}>近乎 0 冷启动</span> 的 JavaScript Serverless 运行环境。通过它，可以轻松的在已有的架构中集成 Serverless 能力。
 
-![Noslate Workers](../assets/noslate-workers-arch.jpg)
+![Noslate Workers](../assets/noslate-workers-arch.png)
 
 ### Aworker
 提供 Web API 标准的 Web-interoperable JavaScript 运行时，通过 Startup Snapshot 和 WarmFork 能力，

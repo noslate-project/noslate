@@ -36,6 +36,10 @@ class Gateway {
         }
     }
 
+    render = (template, context) => {
+        return template.replace(/\{\{(.*?)\}\}/g, (_, key) => context[key] || '');
+    };
+
     getFunctionHeaders(req) {
         let ret;
         const b64 = req.get('x-alice-headers');
@@ -114,7 +118,7 @@ class Gateway {
         this.app.all('/', async (req, res) => {
             const html = await fs.promises.readFile(path.join(__dirname, 'static', 'index.ejs'), 'utf-8');
             res.end(ejs.render(html, {
-                functions: FUNCTION_PROFILE
+                functions: MOCK_FUNCTION_PROFILE
             }));
         });
 
@@ -164,13 +168,13 @@ class Gateway {
         });
 
         this.app.get('/listFunctions', async (req, res) => {
-            res.json(FUNCTION_PROFILE);
+            res.json(MOCK_FUNCTION_PROFILE);
         });
 
         this.app.get('/function/:id', async (req, res) => {
             const name = req.params.id;
 
-            const function_profiles = JSON.parse(await fs.promises.readFile(functionProfileFile));
+            const function_profiles = JSON.parse(await fs.promises.readFile(MOCK_FUNCTION_PROFILE_PATH));
             const _profile = function_profiles.find((v, _) => v.name === name);
 
             if (!_profile) {
@@ -189,95 +193,8 @@ class Gateway {
             res.json(ret);
         });
 
-        this.app.post('/newFunction', async (req, res) => {
-            const { code, function_profile } = req.body;
-
-            if (!function_profile || (!code && !function_profile.url.startsWith('http'))) {
-                res.status(400);
-                return res.end('code or function_profile required');
-            }
-
-            const name = function_profile.name;
-
-            const function_profiles = JSON.parse(await fs.promises.readFile(functionProfileFile));
-            const _profile = function_profiles.find((v, _) => v.name === name);
-
-            if (_profile) {
-                res.status(400);
-                return res.end(`function named ${name} already exists`);
-
-            }
-
-            if (!function_profile.url.startsWith('http')) {
-                const codePath = path.join(functionsDir, function_profile.name);
-
-                if (!fs.existsSync(codePath)) {
-                    await fs.promises.mkdir(codePath);
-                }
-
-                await fs.promises.writeFile(path.join(codePath, function_profile.sourceFile), code);
-
-                function_profile.url = url.pathToFileURL(path.join(functionsDir, function_profile.name));
-                function_profiles.push(function_profile);
-
-            }
-
-            try {
-                await fs.promises.writeFile(functionProfileFile, JSON.stringify(function_profiles, null, 2));
-            } catch (e) {
-                this.logger.error(e);
-                res.status(400);
-                return res.end(`new function ${name} failed`);
-            }
-
-            res.send('Success');
-        });
-
-        this.app.post('/remove/:id', async (req, res) => {
-            const name = req.params.id;
-
-            if (!name) {
-                res.status(400);
-                return res.end('function or service name required');
-            }
-
-            const function_profiles = _.cloneDeep(JSON.parse(await fs.promises.readFile(functionProfileFile)));
-
-            let index;
-
-            const _profile = function_profiles.find((v, i) => {
-                index = i;
-                return v.name === name;
-            });
-
-            if (!_profile) {
-                res.status(400);
-                return res.end(`function named ${name} not exists`);
-            }
-
-            try {
-                function_profiles.splice(index, 1);
-                await fs.promises.writeFile(functionProfileFile, JSON.stringify(function_profiles, null, 2));
-
-                if (_profile.url.startsWith('file')) {
-                    const codePath = url.fileURLToPath(_profile.url);
-                    await fs.promises.rm(codePath, {
-                        recursive: true,
-                        force: true,
-                    });
-                }
-
-            } catch (e) {
-                this.logger.warn(`Remove function ${name} failed`);
-                this.logger.warn(e);
-            }
-
-            return res.send('Success');
-
-        });
-
         this.app.post('/invokeService', async (req, res) => {
-            // TODO
+            res.send('TODO');
         });
 
         this.app.listen(this.port, () => {
@@ -287,19 +204,43 @@ class Gateway {
 
     async start() {
         await this.initHTTPServer();
-        await this.setFunctionProfile(FUNCTION_PROFILE, 'IMMEDIATELY');
+
+        MOCK_FUNCTION_PROFILE.forEach(v => {
+            if (v.url.startsWith('http:')) {
+                return;
+            }
+
+            const tmpPath = this.render(v.url, { FUNCTION_DIR: FUNCTION_DIR });
+            v.url = url.pathToFileURL(path.normalize(tmpPath));
+        });
+
+        await this.setFunctionProfile(MOCK_FUNCTION_PROFILE, 'IMMEDIATELY');
 
         for (const client of this.agent.dataPlaneClientManager.clients()) {
             await client.ready();
         }
 
-        fs.watch(functionProfileFile, { persistent: true }, async (type, filename) => {
+        fs.watch(MOCK_FUNCTION_PROFILE_PATH, { persistent: true }, async (type, filename) => {
             this.logger.info(`Watching ${filename} changed`);
-            if (filename !== path.basename(functionProfileFile)) return;
-            const tmp = JSON.parse(await fs.promises.readFile(functionProfileFile, 'utf-8'));
-            if (!_.isEqual(tmp, FUNCTION_PROFILE)) {
-                FUNCTION_PROFILE = tmp;
-                this.setFunctionProfile(FUNCTION_PROFILE, 'IMMEDIATELY');
+
+            if (filename !== path.basename(MOCK_FUNCTION_PROFILE_PATH)) {
+                return;
+            }
+
+            const tmp = JSON.parse(await fs.promises.readFile(MOCK_FUNCTION_PROFILE_PATH, 'utf-8'));
+
+            tmp.forEach(v => {
+                if (v.url.startsWith('http:')) {
+                    return;
+                }
+
+                const tmpPath = this.render(v.url, { FUNCTION_DIR: FUNCTION_DIR });
+                v.url = url.pathToFileURL(path.normalize(tmpPath));
+            });
+
+            if (!_.isEqual(tmp, MOCK_FUNCTION_PROFILE)) {
+                MOCK_FUNCTION_PROFILE = tmp;
+                this.setFunctionProfile(MOCK_FUNCTION_PROFILE, 'IMMEDIATELY');
             }
 
         });

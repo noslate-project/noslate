@@ -22,7 +22,16 @@
       "collapsible": false,
       "items": [
         "noslate_workers/noslated/intro",
-        "noslate_workers/aworker/intro",
+        {
+          "type": "category",
+          "label": "Aworker",
+          "collapsed": false,
+          "collapsible": false,
+          "items": [
+            "noslate_workers/aworker/intro",
+            "noslate_workers/aworker/web-api"
+          ]
+        },
         "noslate_workers/turf/intro"
       ]
     },
@@ -37,7 +46,6 @@
         "noslate_workers/references/system_config",
         "noslate_workers/references/envionment_variables",
         "noslate_workers/references/scale",
-        "noslate_workers/references/warmfork",
         "noslate_workers/references/sdk",
         "noslate_workers/references/baas",
         "noslate_workers/references/gateway"

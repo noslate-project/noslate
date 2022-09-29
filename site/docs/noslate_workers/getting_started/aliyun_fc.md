@@ -44,10 +44,10 @@ FROM noslate:${NOSLATE_VERSION:-0.0.1}
 
 ```
 // 镜像中预置的环境变量
-const AliceAgent = require(process.env.NOSLATE_PATH);
+const NoslatedClient = require(process.env.NOSLATE_PATH).NoslatedClient;
 
 // 初始化 agent
-const agent = new AliceAgent();
+const agent = new NoslatedClient();
 await agent.start();
 
 // 转发请求
@@ -81,7 +81,7 @@ start_turfd() {
 #### 启动 Noslated
 Noslated 包含 Data Plane 和 Control Plane 两部分，具体细节可以参考[Noslated 介绍](noslate_workers/noslated/intro)，两者的启动顺序没有要求。
 ```
-start_panels() {
+start_planes() {
     node ${NOSLATE_BIN}/data_plane &
     node ${NOSLATE_BIN}/control_plane &
 }

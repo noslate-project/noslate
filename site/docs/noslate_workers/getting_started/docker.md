@@ -61,7 +61,7 @@ start_turfd() {
 #### 启动 Noslated
 Noslated 包含 Data Plane 和 Control Plane 两部分，具体细节可以参考[Noslated 介绍](noslate_workers/noslated/intro)，两者的启动顺序没有要求。
 ```
-start_panels() {
+start_planes() {
     node ${ALINODE_CLOUD_BIN}/data_plane &
     node ${ALINODE_CLOUD_BIN}/control_plane &
 }

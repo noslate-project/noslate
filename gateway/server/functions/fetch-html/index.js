@@ -1,6 +1,6 @@
 'use strict'
 
-const url = 'http://noslate.midwayjs.org/docs/intro';
+const url = 'https://noslate.midwayjs.org/';
 
 async function handleRequest() {
   const init = {
@@ -10,7 +10,7 @@ async function handleRequest() {
   };
   const response = await fetch(url, init);
   const text = await response.text();
-  return new Response(results, init);
+  return new Response(text, init);
 
 }
 

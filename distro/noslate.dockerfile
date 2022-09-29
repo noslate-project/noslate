@@ -14,7 +14,7 @@ ENV NOSLATE_PATH=/usr/local/noslate \
     NOSLATE_WORKDIR=/.noslate
 
 ENV NOSLATE_BIN=${NOSLATE_PATH}/bin \
-    ALICE_WORKDIR=${NOSLATE_WORKDIR}/alice \
+    NOSLATED_WORKDIR=${NOSLATE_WORKDIR}/noslated \
     TURF_WORKDIR=${NOSLATE_WORKDIR}/turf \
     LIBTURF_PATH=${NOSLATE_WORKDIR}/bin/libturf.so \
     NOSLATE_LOGDIR=${NOSLATE_WORKDIR}/logs
@@ -27,9 +27,9 @@ RUN apt-get update && \
 RUN mkdir -p ${NOSLATE_PATH} && \
     mkdir -p ${NOSLATE_WORKDIR} && \
     mkdir -p ${NOSLATE_LOGDIR} && \
-    mkdir -p ${ALICE_WORKDIR} && \
-    mkdir -p ${ALICE_WORKDIR}/caches && \
-    mkdir -p ${ALICE_WORKDIR}/bundles && \
+    mkdir -p ${NOSLATED_WORKDIR} && \
+    mkdir -p ${NOSLATED_WORKDIR}/caches && \
+    mkdir -p ${NOSLATED_WORKDIR}/bundles && \
     mkdir -p ${TURF_WORKDIR} && \
     mkdir -p ${TURF_WORKDIR}/overlay && \
     mkdir -p ${TURF_WORKDIR}/runtime && \

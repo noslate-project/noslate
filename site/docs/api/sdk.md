@@ -1,10 +1,10 @@
-# Alice SDK
+# Noslated Client
 
 ```
 /**
- * Alice SDK
+ * Noslated Client
  */
-interface AliceClient {
+interface NoslatedClient {
     start(): Promise<void>;
     close(): Promise<void>;
     invoke(name: string, data: Readable | Buffer, metadata?: IMetadata): Promise<ITriggerResponse>;
@@ -73,7 +73,7 @@ interface ProcessFunctionProfile {
     fastFailRequestsOnStarting?: boolean;
     v8Options?: string[];
     execArgv?: string[];
-    useCGIMode?: boolean;
+    disposable?: boolean;
   };
   environments?: {
     key: string;

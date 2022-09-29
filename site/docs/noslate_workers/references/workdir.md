@@ -12,18 +12,17 @@
     |-- package.json
 
 -- /<workdir>                           可配置
-    |-- /alice
-    |    |-- alice.sock
+    |-- /noslated
     |    |-- /caches
-    |    |    |-- <uri>                    函数代码包缓存目录，对代码包（镜像）来说唯一
+    |    |    |-- <uri>                    Worker 函数代码包缓存目录，对代码包（镜像）来说唯一
     |    |    |    |-- f.yaml               用户 config
     |    |    |    |-- config.json        用户 config
-    |    |-- /bundles                    镜像目录，对函数来说唯一
-    |    |    |-- <uri>                    函数唯一标识
+    |    |-- /bundles                    镜像目录，对 Worker 函数来说唯一
+    |    |    |-- <uri>                    Worker 函数唯一标识
     |    |    |    |-- code
     |    |    |    |    |-- f.yaml          用户 config
     |    |    |    |    |-- config.json   用户 config
-    |    |    |    |-- config.json        对函数来说唯一，由 Noslated 创建与管理
+    |    |    |    |-- config.json        对 Worker 函数来说唯一，由 Noslated 创建与管理
     |-- /turf
     |    |-- turf.sock
     |    |-- /runtime                    TURF 运行时可执行文件
@@ -34,19 +33,19 @@
     |    |    |     |-- bin
     |    |    |     |    |-- aworker
     |    |-- /overlay
-    |    |    |-- <id>                     容器 ID，对容器来说唯一
+    |    |    |-- <id>                     Worker 实例 ID，对 Worker 实例来说唯一
     |    |    |     |-- data               用户修改的文件
     |    |    |     |-- work               overlayfs 临时数据
     |    |    |     |-- merged           overlayfs 挂载点
     |    |    |     |-- code              代码包，对应 config.json | turf.code
     |    |-- /sandbox                  TURF 工作目录
-    |    |    |-- <id>                     容器 ID，对容器来说唯一
+    |    |    |-- <id>                     Worker 实例 ID，对 Worker 实例来说唯一
     |    |    |     |-- status             turf 状态信息，可以直接读取（json格式）
-    |    |    |     |-- config.json      turf 创建容器的 spec，create 时指定的 spec
+    |    |    |     |-- config.json      turf 创建 Worker 实例的 spec，create 时指定的 spec
 
 -- /<log-dir>                          可配置
-    |-- <name>                         函数名，对函数来说唯一
-    |    |-- <id>                         容器 ID，会在调用时 agent 日志中打印 ，对容器来说唯一
-    |    |     |-- stderr                  函数容器 stderr
-    |    |     |-- stdout                 函数容器 stdout
+    |-- <name>                         Worker 实例名，对 Worker 函数来说唯一
+    |    |-- <id>                         Worker 实例 ID，会在调用时 agent 日志中打印 ，对 Worker 实例来说唯一
+    |    |     |-- stderr                 Worker 实例 stderr
+    |    |     |-- stdout                 Worker 实例 stdout
 ```

@@ -1,13 +1,13 @@
 # 自定义 Gateway
 
-跟随本教程，我们将实现一个基于 HTTP 的自定义 Gateway 模块，同时可以通过 sqllite 持久化存储函数信息。
+跟随本教程，我们将实现一个基于 HTTP 的自定义 Gateway 模块，同时可以通过 sqllite 持久化存储 Worker 函数信息。
 
 ## 数据存储
 在本示例中，我们选择 sqlite3 作为存储，首先先创建一个数据库：
 ```
 > sqlite3 gateway.db
 ```
-然后我们创建两张表，用来存储函数配置以及服务路由配置：
+然后我们创建两张表，用来存储 Worker 函数配置以及服务路由配置：
 ```
 sqlite> CREATE TABLE function_profile (
   id INT PRIMARY KEY NOT NULL,
@@ -48,7 +48,7 @@ app.post('/removeFunction', this.removeFunction);
 app.post('/removeService', this.removeService);
 ```
 
-然后我们初始化 sqllite db 和 alice agent。
+然后我们初始化 sqllite db 和 noslated client。
 
 ```
 // init db
@@ -58,8 +58,8 @@ this.db = new Sequelize({
 });
 
 // init agent
-const AliceAgent = require(process.env.NOSLATE_PATH).AliceAgent;
-this.agent = new AliceAgent();
+const NoslatedClient = require(process.env.NOSLATE_PATH).NoslatedClient;
+this.agent = new NoslatedClient();
 
 await this.agent.start();
 ```
@@ -84,10 +84,10 @@ server.listen(8000);
 
 #### 2. 创建 Agent 对象并初始化
 ```
-const AliceAgent = require(process.env.NOSLATE_PATH).AliceAgent;
-const agent = new AliceAgent();
+const NoslatedClient = require(process.env.NOSLATE_PATH).NoslatedClient;
+const client = new NoslatedClient();
 
-await agent.start();
+await client.start();
 ```
 
 ### 3. 解析 HTTP 请求并转发
@@ -107,7 +107,7 @@ _res.pipe(res);
 ```
 
 ### 4. 支持更新配置
-订阅远端函数配置，并更新
+订阅远端 Worker 函数配置，并更新
 ```
 setInterval(async () => {
     const config = await fetch(configUrl);

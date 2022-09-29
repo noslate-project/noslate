@@ -32,7 +32,7 @@ fork，从而避免从 main() 开始的启动消耗，达到快速启动的目�
   现有的实现）；
 - 使用 V8 的 SingleThread 模式，这是一个给 Low-end devices 实现的能力，不过非常符合 Serverless 资源模型；
 
-而为了管理、隔离这些 Worker Process，我们需要一个轻量的业务进程容器管理组件 Turf ，该组件用于能通过 WarmFork 方式创建新的
+而为了管理、隔离这些工作进程，我们需要一个轻量的业务进程容器管理组件 Turf ，该组件用于能通过 WarmFork 方式创建新的
 Aworker 服务进程，并能提供一定的资源、环境的隔离能力，同时兼容 OCI。区别于传统 runc, rund 的容器，turf 旨在承载如 Aworker
 这类轻 JS Runtime，它无需镜像运行，开销更低，可以支持更高的部署密度。
 
@@ -40,7 +40,7 @@ Alinode WarmFork 具体的对比：
 
 ![turf-warmfork-comparison](/img/noslate/references/turf-warmfork-comparison.png)
 
-提供 "被复制" 的进程，称为 "种子进程"，其他服务进程都是该进程的克隆。譬如 Alinode Worker 作为种子进程，它需要确定自己一个 "可被克隆"
+提供 "被复制" 的进程，称为 "种子进程"，其他服务进程都是该进程的克隆。譬如 Aworker 作为种子进程，它需要确定自己一个 "可被克隆"
 的时间点，将自己的所在状态（内存）作为克隆进程的初始状态。
 
 WarmFork 的系统时序如下：

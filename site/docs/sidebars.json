@@ -28,7 +28,8 @@
           "collapsible": false,
           "items": [
             "noslate_workers/aworker/intro",
-            "noslate_workers/aworker/web-api"
+            "noslate_workers/aworker/web-api",
+            "noslate_workers/aworker/serialize-api"
           ]
         },
         "noslate_workers/noslated/intro",

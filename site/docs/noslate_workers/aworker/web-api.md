@@ -22,17 +22,17 @@ Aworker 提供了常见的定义在 ServiceWorkerGlobalScope，WorkerGlobalScope
 - [TextDecoder](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder)
 - [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL_API)
 
-## Worker 生命周期
+## Aworker 生命周期
 
-Worker 环境从加载用户代码初始化到开始接收请求会有以下几个事件：
+Aworker 从加载用户代码初始化到开始接收请求会有以下几个事件：
 
 - `'install'`: 用户代码完全加载完成后，第一个接收到的事件。程序可以开始在这个事件里加载缓存。
-- `'activate'`: 表示 Worker 已经开始准备接收请求。
+- `'activate'`: 表示 Aworker 已经开始准备接收请求。
 - `'fetch'`: 表示请求事件。
 
 Worker 实例被销毁前不会有事件。通常会由运行时保证在所有请求响应完毕后，Worker 实例才被回收。
 
-监听 Worker 的事件可以通过 Web EventTarget API，比如：
+监听 Aworker 的事件可以通过 Web EventTarget API，比如：
 
 ```js
 addEventListener('install', event => {

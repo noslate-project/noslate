@@ -1,0 +1,52 @@
+[
+  {
+    "name": "hello-html",
+    "runtime": "aworker",
+    "url": "{{FUNCTION_DIR}}/hello-html",
+    "sourceFile": "index.js",
+    "signature": "md5:12345",
+    "worker": {
+      "reservationCount": 0
+    }
+  },
+  {
+    "name": "hello-json",
+    "runtime": "aworker",
+    "url": "{{FUNCTION_DIR}}/hello-json",
+    "sourceFile": "index.js",
+    "signature": "md5:12345",
+    "worker": {
+      "reservationCount": 0
+    }
+  },
+  {
+    "name": "fetch-html",
+    "runtime": "aworker",
+    "url": "{{FUNCTION_DIR}}/fetch-html",
+    "sourceFile": "index.js",
+    "signature": "md5:12345",
+    "worker": {
+      "reservationCount": 0
+    }
+  },
+  {
+    "name": "LEB128",
+    "runtime": "aworker",
+    "url": "{{FUNCTION_DIR}}/LEB128",
+    "sourceFile": "index.js",
+    "signature": "md5:12345",
+    "worker": {
+      "reservationCount": 0
+    }
+  },
+  {
+    "name": "redirect-url",
+    "runtime": "aworker",
+    "url": "{{FUNCTION_DIR}}/redirect-url",
+    "sourceFile": "index.js",
+    "signature": "md5:12345",
+    "worker": {
+      "reservationCount": 0
+    }
+  }
+]

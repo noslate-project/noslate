@@ -146,11 +146,14 @@
         const requests = [];
 
         for (let time = 0; time < concurrency; time++) {
+          const init = { method };
+
+          if (!['GET', 'HEAD'].includes(method)) {
+            init.body = body;
+          }
+
           requests.push(
-            fetch(realUrl, {
-              method,
-              // body,
-            })
+            fetch(realUrl, init)
           );
         }
 
@@ -168,7 +171,7 @@
             $('#submit').html('Submit');
             $('#submit').removeAttr('disabled');
             console.log(error);
-            alert('Request failed, try to click View');
+            alert(error.message);
           });
 
         return false;

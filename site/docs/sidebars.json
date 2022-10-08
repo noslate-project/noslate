@@ -75,11 +75,6 @@
       "id": "api/aworker"
     },
     {
-      "type": "doc",
-      "label": "Turf",
-      "id": "api/turf"
-    },
-    {
       "type": "category",
       "label": "Noslated",
       "collapsed": false,

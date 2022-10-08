@@ -118,9 +118,11 @@
       "id": "debugger/intro"
     },
     {
-      "type": "doc",
-      "label": "Arthur 高效的 Corefile 生成器",
-      "id": "debugger/arthur"
+      "type": "category",
+      "label": "进阶文档",
+      "collapsed": true,
+      "collapsible": true,
+      "items": ["debugger/arthur"]
     }
   ],
   "project": [

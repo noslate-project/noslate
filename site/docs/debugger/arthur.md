@@ -1,7 +1,6 @@
-# Arthur 高效的 Corefile 生成器
+# Capture a corefile by arthur
 
-
-***注意：当前版本文档为预览版，不够完善还请谅解。***
+[https://github.com/noslate-project/arthur](https://github.com/noslate-project/arthur)
 
 Arthur uses fork() to reduce the pausing lag, and lz4 to reduce the corefile size.
 

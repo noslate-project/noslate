@@ -30,4 +30,4 @@ Noslate is an elegant, modern and fully customizable serverless runtime.
 
 ### Noslate Project
 
-Noslate Project is developed by Alibaba and part based on the Node.js project. All changes licensed under the MIT License. See the NOTICE file for more information.
+Noslate Project is developed by Alibaba and part based on the Node.js project. All changes licensed under the MIT License.

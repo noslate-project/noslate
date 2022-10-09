@@ -230,11 +230,12 @@ class Gateway {
             if (filename !== path.basename(MOCK_FUNCTION_PROFILE_PATH)) {
                 return;
             }
+
             const profile = JSON.parse(await fs.promises.readFile(MOCK_FUNCTION_PROFILE_PATH, 'utf-8'));
             this.renderUrls(profile);
 
-            if (!_.isEqual(tmp, MOCK_FUNCTION_PROFILE)) {
-                MOCK_FUNCTION_PROFILE = tmp;
+            if (!_.isEqual(profile, MOCK_FUNCTION_PROFILE)) {
+                MOCK_FUNCTION_PROFILE = profile;
                 this.setFunctionProfile(MOCK_FUNCTION_PROFILE, 'IMMEDIATELY');
             }
 

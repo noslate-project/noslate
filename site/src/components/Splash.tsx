@@ -142,11 +142,15 @@ export function Splash() {
     onFinished() {
       const nextIndex = index === targets.length - 1 ? 0 : index + 1;
       setTimeout(() => {
-        setIndex(nextIndex);
+        // 和翻译插件冲突了
+        if(!document.getElementById(':2.container')) {
+          setIndex(nextIndex);
+        }
       }, 3000);
     },
     pace: () => 100,
   });
+
 
   return (
     <Container>

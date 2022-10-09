@@ -6,7 +6,6 @@ module.exports = () => {
         postBodyTags: [
           `<script type="text/javascript">document.write(unescape("%3Cspan style='display: none' id='cnzz_stat_icon_1279723477'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279723477' type='text/javascript'%3E%3C/script%3E"));</script>`,
           `
-           <script type="text/javascript" src="//translate.google.com/translate_a/element.js"></script>
            <script type="text/javascript">
              let navRight = null;
              function doFind() {
@@ -31,8 +30,8 @@ module.exports = () => {
                new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,ja,zh-TW,ko,ru,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
              }
 
-             doFind();
            </script>
+           <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=doFind"></script>
           `
         ],
       };

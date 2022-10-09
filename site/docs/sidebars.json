@@ -114,10 +114,67 @@
     },
     {
       "type": "category",
-      "label": "进阶文档",
-      "collapsed": true,
-      "collapsible": true,
-      "items": ["debugger/arthur"]
+      "label": "Andb",
+      "collapsed": false,
+      "collapsible": false,
+      "link": {
+        "type": "doc",
+        "id": "debugger/andb/intro"
+      },
+      "items": [
+        "debugger/andb/env_linux",
+        "debugger/andb/env_macos",
+        {
+          "type": "category",
+          "label": "CLI",
+          "link": {
+            "type": "doc",
+            "id": "debugger/andb/cli"
+          },
+          "items": [
+            "debugger/andb/v8",
+            "debugger/andb/heap",
+            "debugger/andb/mm",
+            "debugger/andb/node"
+        ]
+        },
+        {
+          "type": "category",
+          "label": "进阶帮助",
+          "items": [
+            "debugger/andb/develop",
+            "debugger/andb/dbg",
+            "debugger/andb/autolayout",
+            "debugger/andb/live_proc"
+        ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Arthur",
+      "collapsed": false,
+      "collapsible": false,
+      "link": {
+        "type": "doc",
+        "id": "debugger/arthur/intro"
+      },
+      "items": [
+        "debugger/arthur/intro"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Dwf",
+      "collapsed": false,
+      "collapsible": false,
+      "link": {
+        "type": "doc",
+        "id": "debugger/dwf/intro"
+      },
+      "items": [
+        "debugger/dwf/buildid"
+      ]
     }
   ],
   "project": [

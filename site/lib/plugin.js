@@ -10,7 +10,8 @@ module.exports = () => {
            <script type="text/javascript">
              let navRight = null;
              function doFind() {
-               navRight = document.getElementsByClassName('navbar__items--right')[0];
+               const find = document.getElementsByClassName('navbar__items--right');
+               navRight = find && find[0];
                if(navRight) {
                  navRight.prepend(htmlToElem('<div id="google_translate_element" style="margin-right: 10px" ></div>'));
                  googleTranslateElementInit();

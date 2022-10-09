@@ -15,7 +15,7 @@ const config = {
   favicon: 'img/logo.svg',
   organizationName: 'noslate-project', // Usually your GitHub org/user name.
   projectName: 'noslate', // Usually your repo name.
-  stylesheets: ['//at.alicdn.com/t/font_2797741_dnh1sm1jan.css'],
+  stylesheets: ['//at.alicdn.com/t/a/font_2797741_l39t8bs3w1r.css'],
   i18n: {
     defaultLocale: 'zh-cn',
     locales: ['zh-cn', 'en'],

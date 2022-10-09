@@ -91,7 +91,7 @@ const featurs = [
     description: `WinterCG 规范的，轻量 Web API 标准运行时`,
   },
   {
-    icon: 'icon-nintendogamecube',
+    icon: 'icon-debug',
     title: 'Noslate Debugger',
     description: '面向崩溃和异常场景的，Corefile 离线诊断',
     isMiddle: true

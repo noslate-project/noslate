@@ -22,7 +22,7 @@ Worker 函数的元信息和服务路由配置均由 Control Plane 管理，并�
 以更新 Worker 函数配置为例：
 ![Worker 函数配置](../../assets/noslated_function_profile.png)
 
-## 数据面板（Data Plane）
+## 数据面（Data Plane）
 Data Plane 是 Noslated 的请求主链路，所有流量均通过 Data Plane 流经对应的工作实例，在得到 Worker 函数调用指令后，决定将数据发送给哪个 Worker 实例。
 
 另外，Worker 实例对外的请求均是由 Data Plane 作为代理执行。

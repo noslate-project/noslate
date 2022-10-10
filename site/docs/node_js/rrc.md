@@ -63,7 +63,7 @@ if (fs.existsSync(pgoFilePath)) {
 
 目前 Noslate 发行版本已经在阿里云函数计算自 Node.js 14 起版本全量提供，只要使用 Node.js 14 版本即可使用。
 
-目前与 [Serverless Devs](https://www.serverless-devs.com/zh-cn) 实现了集成，可以通过 Serverless Devs 的 `s cli` 直接使用。
+目前与 [Serverless Devs](https://www.serverless-devs.com/) 实现了集成，可以通过 Serverless Devs 的 `s cli` 直接使用。
 
 1. 在 `s.yaml` 中的 service actions 中添加 `pre-deploy` ，配置 run 命令为 `s cli pgo`，如图所示
 

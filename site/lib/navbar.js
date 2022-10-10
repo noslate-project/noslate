@@ -25,7 +25,7 @@ module.exports = [
   },
   {
     "type": "doc",
-    "docId": "api/aworker",
+    "docId": "api/sdk",
     "label": "API References",
     "position": "right"
   }

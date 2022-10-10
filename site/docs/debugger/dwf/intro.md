@@ -7,7 +7,7 @@ Node 使用不同的 V8 版本，这些版本在对象支持上都有差异。
 
 Noslate Debugger 从编译器产出的 DebugInfo(调试信息) 中获取到对象的 Layout 信息，并自动产生对应的对象的解析函数、DebugPrint等实现。
 
-<div style={{maxWidth: "600px"}} >
+<div style={{maxWidth: "800px"}} >
 
 ![CU Merge](../../assets/dwf-layout.png)
 
@@ -32,7 +32,7 @@ Noslate Debugger 正是利用了这些结构体信息，编写了 Shadow 引擎�
 
 Noslate Debugger 将冗余的调试信息节点进行了 CU 合并。合并后，node.typ 文件仅有 150MB，包含全量 189 万 DIE，546 万属性。
 
-<div style={{maxWidth: "600px"}} >
+<div>
 
 ![CU Merge](../../assets/dwf-die.png)
 

@@ -7,8 +7,12 @@
 
 ## 使用 XCode 内置 lldb 调试 
 
+安装 xcode 后自带的 lldb 即可，无需其他额外安装。
+
+
 ## 使用预编译的 andb-gdb 调试
 
+`brew` 仓库默认的 gdb 只适合 MacOS 平台的 Corefile，要调试 Linux 平台的 Corefile 需要重新进行编译，或使用 andb 预编译的版本。
 `andb-gdb` 是多平台预编译的 gdb 工具，当前版本为 `10.2`。
 
 ```bash
@@ -17,7 +21,7 @@ $git clone git@github.com:noslate-project/andb-gdb.git
 # 同样需要把 gdb 环境变量加入
 $cd andb-gdb
 $source env.sh
-andb loader enabled, please use 'andb' command to start debugging.
+x86_64-Darwin
 ```
 
 ## 配置工具
@@ -29,12 +33,8 @@ git clone git@github.com:noslate-project/andb.git
 
 将 `andb` 环境变量加入
 ```bash
-cd andb
-. env.sh
-```
-
-显示如下信息说明设置完成
-```
+$cd andb
+$source env.sh
 andb loader enabled, please use 'andb' command to start debugging.
 ```
 

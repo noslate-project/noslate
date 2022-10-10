@@ -10,7 +10,6 @@ Noslate is an elegant, modern and fully customizable serverless runtime.
 * Website: [https://noslate.midwayjs.org/](https://noslate.midwayjs.org/)
 
 
-
 ### Components
   
 
@@ -26,6 +25,13 @@ Noslate is an elegant, modern and fully customizable serverless runtime.
 
 * Arthur: Fast corefile generator https://github.com/noslate-project/arthur
 
+
+### How to build
+
+1. Noslate project use Repo (a google-built repository management tool) to manage repos, so you can use repo cli get all repos easly. 
+    * Please refer to https://github.com/noslate-project/manifest
+2. Then you can use Noslate building infrastructure to build whole project or just a part.
+    * Please refer to https://github.com/noslate-project/build
 
 ### Noslate Project
 

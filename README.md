@@ -6,7 +6,6 @@
 
 Noslate is an elegant, modern and fully customizable serverless runtime.
 
-  
 
 * Website: [https://noslate.midwayjs.org/](https://noslate.midwayjs.org/)
 
@@ -15,17 +14,17 @@ Noslate is an elegant, modern and fully customizable serverless runtime.
 ### Components
   
 
-* Aworker: Noslate JavaScript worker
+* Aworker: Noslate JavaScript worker https://github.com/noslate-project/aworker
 
-* Noslated: Workers management
+* Noslated: Workers management https://github.com/noslate-project/noslated
 
-* Turf: Ultra-light container
+* Turf: Ultra-light container https://github.com/noslate-project/turf
 
-* Anode: Node.js distribution for serverless
+* Anode: Node.js distribution for serverless https://github.com/noslate-project/node
 
-* Debugger: V8 corefile debugger for gdb/lldb
+* Debugger: V8 corefile debugger for gdb/lldb https://github.com/noslate-project/andb
 
-* Arthur: Fast corefile generator
+* Arthur: Fast corefile generator https://github.com/noslate-project/arthur
 
 
 ### Noslate Project

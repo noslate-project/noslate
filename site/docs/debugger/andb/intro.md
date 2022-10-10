@@ -1,6 +1,8 @@
 # Andb
 
-Noslate Debugger 是适用于 gdb/lldb 的 v8 离线调试工具，一般用于调试 v8 的 core 文件。下文会使用 `andb` 代指本项目，为 Alibaba Noslate Debugger 的缩写。
+Noslate Debugger 是适用于 gdb/lldb 的 v8 离线调试工具，一般用于调试 v8 的 core 文件。
+
+下文会使用 `andb` 代指本项目，为 Alibaba Noslate Debugger 的缩写。
 
 
 ### 主要功能

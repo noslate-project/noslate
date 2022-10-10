@@ -61,7 +61,7 @@ $git clone git@github.com:noslate-project/andb-gdb.git
 # 同样需要把 gdb 环境变量加入
 $cd andb-gdb
 $source env.sh
-andb loader enabled, please use 'andb' command to start debugging.
+x86_64-Linux
 ```
 
 #### CentOS 7
@@ -108,10 +108,6 @@ $git clone git@github.com:noslate-project/andb.git
 ```bash
 $cd andb
 $source env.sh
-```
-
-显示如下信息说明设置完成
-```
 andb loader enabled, please use 'andb' command to start debugging.
 ```
 

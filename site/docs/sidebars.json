@@ -114,7 +114,7 @@
     },
     {
       "type": "category",
-      "label": "Andb",
+      "label": "Andb - 离线调试器",
       "collapsed": false,
       "collapsible": false,
       "link": {
@@ -132,40 +132,26 @@
             "id": "debugger/andb/cli"
           },
           "items": [
+            "debugger/andb/isolate",
             "debugger/andb/v8",
             "debugger/andb/heap",
-            "debugger/andb/mm",
-            "debugger/andb/node"
-        ]
-        },
-        {
-          "type": "category",
-          "label": "进阶帮助",
-          "items": [
-            "debugger/andb/develop",
-            "debugger/andb/dbg",
-            "debugger/andb/autolayout",
-            "debugger/andb/live_proc"
+            "debugger/andb/mm"
         ]
         }
       ]
     },
     {
       "type": "category",
-      "label": "Arthur",
+      "label": "Arthur - CoreDumper",
       "collapsed": false,
       "collapsible": false,
-      "link": {
-        "type": "doc",
-        "id": "debugger/arthur/intro"
-      },
       "items": [
         "debugger/arthur/intro"
       ]
     },
     {
       "type": "category",
-      "label": "Dwf",
+      "label": "Dwf - 调试信息",
       "collapsed": false,
       "collapsible": false,
       "link": {

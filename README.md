@@ -1,7 +1,7 @@
 
 # Noslate Project
 
-<img width="702" alt="image" src="https://user-images.githubusercontent.com/629202/186866256-4380bc8e-67f8-47a1-86a5-369fe79cbad9.png">
+<img width="702" alt="image" src="https://gw.alicdn.com/imgextra/i2/O1CN019qyime1ZDKM3cAwng_!!6000000003160-2-tps-1324-390.png">
 
 
 Noslate is an elegant, modern and fully customizable serverless runtime.
@@ -17,7 +17,7 @@ Noslate is an elegant, modern and fully customizable serverless runtime.
 
 * Aworker: Noslate JavaScript worker
 
-* NoslateD: Workers management
+* Noslated: Workers management
 
 * Turf: Ultra-light container
 

@@ -8,7 +8,9 @@
 
 </div>
 
-依托自研的 Web-interoperable 运行时 Aworker，提供了一个 <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#926DDE' }}>轻量</span>，<span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#926DDE' }}>近乎 0 冷启动</span> 的 JavaScript Serverless 运行环境。通过它，可以轻松的在已有的架构中集成 Serverless 能力。
+依托自研的 Web-interoperable 运行时 Aworker，提供了一个 <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#926DDE' }}>轻量</span>，<span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#926DDE' }}>近乎 0 冷启动</span> 的 JavaScript Serverless 运行环境。通过它，可以轻松的在已有的架构中集成轻量化类 Serverless 的能力。
+
+与传统的 FaaS 架构不同是，这是一个在普通应用容器之上的轻量任务单位。得益于良好的动态任务高密度混部和隔离特性、以及基于任务状态拷贝 API 带来的近乎 0 冷启动特性，可以实现任务的即用即启与即停即抛，进而无需关心在整个大集群中任务节点的编排问题。
 
 ![Noslate Workers](../assets/noslate-workers-arch.png)
 

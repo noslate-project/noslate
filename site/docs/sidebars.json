@@ -63,17 +63,12 @@
       ]
     },
     {
-      "type": "doc",
+      "type": "link",
       "label": "版本历史",
-      "id": "noslate_workers/release_notes"
+      "href": "https://github.com/noslate-project/noslate/releases"
     }
   ],
   "api": [
-    {
-      "type": "doc",
-      "label": "Aworker",
-      "id": "api/aworker"
-    },
     {
       "type": "category",
       "label": "Noslated",
@@ -82,6 +77,11 @@
       "items": [
         "api/sdk"
       ]
+    },
+    {
+      "type": "link",
+      "label": "Aworker",
+      "href": "https://noslate-project.github.io/aworker/"
     }
   ],
   "node_js": [

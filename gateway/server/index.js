@@ -128,6 +128,7 @@ class Gateway {
 
         this.app.all('/', async (req, res) => {
             const html = await fs.promises.readFile(path.join(__dirname, 'static', 'index.ejs'), 'utf-8');
+            res.set('Content-Type', 'text/html');
             res.end(ejs.render(html, {
                 functions: MOCK_FUNCTION_PROFILE
             }));

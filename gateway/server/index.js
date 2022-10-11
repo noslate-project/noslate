@@ -47,7 +47,7 @@ class Gateway {
             }
 
             const tmpPath = this.render(v.url, { FUNCTION_DIR });
-            v.url = url.pathToFileURL(path.normalize(tmpPath));
+            v.url = url.pathToFileURL(path.normalize(tmpPath)).href;
         });
     }
 
@@ -192,6 +192,8 @@ class Gateway {
                 res.status(404);
                 return res.end(`function ${name} not found`);
             }
+
+            this.renderUrls([_profile]);
 
             const ret = {
                 function_profile: _profile

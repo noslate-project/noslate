@@ -12,7 +12,7 @@ module.exports = () => {
                const find = document.getElementsByClassName('navbar__items--right');
                navRight = find && find[0];
                if(navRight) {
-                 navRight.prepend(htmlToElem('<div id="google_translate_element" style="margin-right: 10px" ></div>'));
+                 navRight.prepend(htmlToElem('<div title="English documents are still in preparation, please use machine translation temporarily." id="google_translate_element" style="margin-right: 10px" ></div>'));
                  googleTranslateElementInit();
                } else {
                  setTimeout(doFind, 1000);
@@ -27,7 +27,7 @@ module.exports = () => {
              }
 
              function googleTranslateElementInit() {
-               new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,ja,zh-TW,ko,ru,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+               new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,ja,ko,ru,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
              }
 
            </script>

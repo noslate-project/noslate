@@ -98,7 +98,7 @@ const components = [
   {
     title: 'Debugger',
     link: 'https://github.com/noslate-project/andb',
-    description: 'A feature you need',
+    description: 'V8 corefile debugger',
     icon: 'icon-debug',
   },
   {
@@ -123,7 +123,7 @@ const Grid = styled('div', {
 
 export function EssentialsComponents() {
   return (
-    <Block title="Essentials Components" subtitle="All the features you need for development" background="light">
+    <Block title="基础组件" subtitle="All the features you need for development" background="light">
       <Grid>
         {components.map((component, index) => (
           <Component key={index} {...component} />

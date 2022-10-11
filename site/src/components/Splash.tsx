@@ -6,7 +6,7 @@ import { VAR } from '../var';
 
 const Container = styled('div', {
   paddingTop: 100,
-  paddingBottom: 205,
+  paddingBottom: 155,
   paddingLeft: 125,
   display: 'flex',
   flexDirection: 'column',
@@ -50,6 +50,13 @@ const opacityKeyframe = keyframes({
   },
   to: {
     opacity: 1,
+  },
+});
+
+const TryTryLink = styled('a', {
+  color: 'rgb(58, 72, 85)',
+  '&:hover': {
+    textDecoration: 'none'
   },
 });
 
@@ -162,17 +169,20 @@ export function Splash() {
         ))}
         "
       </SubTitle>
-      {/* <Lead><strong>Noslate Project</strong> 是一个优雅、现代且完全可定制的 Serverless 服务器运行时。</Lead> */}
-      <Lead><strong>Noslate</strong>  is an elegant, modern and fully customizable serverless runtime.</Lead>
+      <Lead><strong>Noslate</strong> 是一款优雅、现代且完全可自定义的 JavaScript 轻量运行时</Lead>
+      {/* <Lead><strong>Noslate</strong>  is an elegant, modern and fully customizable serverless runtime.</Lead> */}
       <ButtonGroup>
         <Button type="main" href="/docs/project/intro.html">
-          Get Started
+          快速开始
         </Button>
         <Button type="secondary" href="https://github.com/noslate-project/noslate" target="_blank">
           <Icon className="iconfont icon-github-fill" />
           Github
         </Button>
       </ButtonGroup>
+      <div style={{marginTop: 20}} >
+          <TryTryLink href="http://noslate-labs.midwayjs.org/" target="_blank" ><i className="iconfont icon-huojiancopy" style={{fontSize: 20}} ></i> 在线体验 Noslate Workers</TryTryLink>
+      </div>
     </Container>
   );
 }

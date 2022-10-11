@@ -88,7 +88,7 @@ const featurs = [
   {
     icon: 'icon-huojiancopy',
     title: 'Noslate Workers',
-    description: `WinterCG 规范的，轻量 Web API 标准运行时`,
+    description: `Web-interoperable 规范的，轻量 Web API 标准运行时`,
   },
   {
     icon: 'icon-debug',

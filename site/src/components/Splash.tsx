@@ -172,7 +172,7 @@ export function Splash() {
       <Lead><strong>Noslate</strong> 是一款优雅、现代且完全可自定义的 JavaScript 轻量运行时</Lead>
       {/* <Lead><strong>Noslate</strong>  is an elegant, modern and fully customizable serverless runtime.</Lead> */}
       <ButtonGroup>
-        <Button type="main" href="/docs/project/intro.html">
+        <Button type="main" href="/docs/project/intro">
           快速开始
         </Button>
         <Button type="secondary" href="https://github.com/noslate-project/noslate" target="_blank">

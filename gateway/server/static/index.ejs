@@ -1,12 +1,225 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gateway</title>
+  <title>Noslate Playground</title>
+  <meta charset="UTF-8" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" data-name="vs/editor/editor.main"
+    href="https://gw.alipayobjects.com/os/lib/monaco-editor/0.22.3/min/vs/editor/editor.main.css">
 </head>
+
 <body>
-  <h1>Building...</h1>
+  <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-body border-bottom shadow-sm">
+    <p class="h5 my-0 me-md-auto fw-normal">Noslate Playground</p>
+    <nav class="my-2 my-md-0 me-md-3">
+      <a class="p-2 text-dark" href="https://github.com/noslate-project/noslate">Repositories</a>
+    </nav>
+  </header>
+
+  <main style="padding-left: 20px">
+    <div class="row row-cols-3 row-cols-md-3">
+      <div class="col">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header text-center">
+            <h4 class="my-0 fw-normal">Parameters</h4>
+          </div>
+          <div class="card-body">
+            <form style="margin: 0; padding: 0;">
+              <div class="mb-3">
+                <label for="funcName" class="form-label">Function</label>
+                <select class="form-select" id="funcName" aria-describedby="funcNameHelp">
+                  <% for (const func of functions) { %>
+                    <option value="<%= func.name %>">
+                      <%= func.name %> (<%= func.runtime %>)
+                    </option>
+                    <% } %>
+                </select>
+                <div id="funcNameHelp" class="form-text">Function name.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="method" class="form-label">Method</label>
+                <select class="form-select" id="method" aria-describedby="methodHelp">
+                  <option value="GET">GET</option>
+                  <option value="POST">POST</option>
+                  <option value="PUT">PUT</option>
+                  <option value="DELETE">DELETE</option>
+                  <option value="HEAD">HEAD</option>
+                </select>
+                <div id="methodHelp" class="form-text">Request method.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="url" class="form-label">URL</label>
+                <input type="text" id="url" class="form-control" placeholder="/" aria-describedby="urlHelp">
+                <div id="urlHelp" class="form-text">Request URL (absolute).</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="url" class="form-label">Request Body</label>
+                <div id="request-body" style="height: 200px; margin-bottom: 10px; border: 1px solid #eee;"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="concurrency" class="form-label">Concurrency</label>
+                <input type="number" id="concurrency" class="form-control" placeholder="1"
+                  aria-describedby="concurrencyHelp">
+                <div id="concurrencyHelp" class="form-text">Concurrency requests, default is 1</div>
+              </div>
+
+              <button type="submit" class="w-100 btn btn-lg btn-outline-primary" id="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row row-cols-1 row-cols-md-1">
+
+        <div class="col">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-header text-center">
+              <h4 class="my-0 fw-normal">Code</h4>
+            </div>
+
+            <div class="card-body">
+              <div id="code-body" style="height: 709px; margin-bottom: 10px; border: 1px solid #eee;"></div>
+              <div id="concurrencyHelp" class="form-text">出于安全考虑，仅可查看代码。</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header text-center">
+            <h4 class="my-0 fw-normal">Result</h4>
+          </div>
+
+          <div class="card-body">
+            <div class="mb-3">
+              <label for="method" class="form-label">Language</label>
+              <select class="form-select" id="lang" aria-describedby="methodHelp">
+                <option value="json">JSON</option>
+                <option value="html">HTML</option>
+                <option value="text">TEXT</option>
+                <option value="javascript">JAVASCRIPT</option>
+              </select>
+            </div>
+            <div id="response-body" style="height: 596px; margin-bottom: 10px; border: 1px solid #eee;"></div>
+            <button type="button" class="view w-100 btn btn-lg btn-outline-primary" id="view">View</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+  <script src="https://gw.alipayobjects.com/os/lib/monaco-editor/0.22.3/min/vs/loader.js"></script>
+  <script src="https://gw.alipayobjects.com/os/lib/jquery/3.5.1/dist/jquery.min.js"></script>
+  <script>
+    let editor1, editor2, editor3;
+    require.config({ paths: { vs: 'https://gw.alipayobjects.com/os/lib/monaco-editor/0.22.3/min/vs' } });
+    require(['vs/editor/editor.main'], function () {
+      editor1 = monaco.editor.create(document.getElementById('request-body'), {
+        language: 'json',
+        tabSize: 2,
+        theme: 'vs-dark',
+      });
+
+      editor2 = monaco.editor.create(document.getElementById('code-body'), {
+        language: 'javascript',
+        tabSize: 2,
+        theme: 'vs-dark',
+        readOnly: true,
+      });
+
+      editor3 = monaco.editor.create(document.getElementById('response-body'), {
+        language: 'json',
+        tabSize: 2,
+        theme: 'vs-dark',
+        readOnly: true,
+      });
+    });
+  </script>
+  <script>
+    $(async () => {
+
+      const funcName = $('#funcName').val();
+      const realUrl = `/function/${funcName}`;
+      const res = await fetch(realUrl);
+      const text = await res.json();
+      editor2.setValue(text.code);
+
+      $('#funcName').change(async () => {
+        const funcName = $('#funcName').val();
+        const realUrl = `/function/${funcName}`;
+        const res = await fetch(realUrl);
+        const text = await res.json();
+        editor2.setValue(text.code);
+      });
+      $('.view').click(() => {
+        const funcName = $('#funcName').val();
+        const realUrl = `/invoke/${funcName}`;
+        window.open(realUrl);
+      });
+
+      $('#lang').change(() => {
+        const lang = $('#lang').val();
+        monaco.editor.setModelLanguage(editor3.getModel(), lang);
+      });
+
+      $('form').submit(() => {
+        const funcName = $('#funcName').val();
+        const url = $('#url').val();
+        const body = editor1.getValue();
+        const method = $('#method').val();
+        const concurrency = parseInt($('#concurrency').val() || '1', 10);
+
+        const realUrl = `/invoke/${funcName}`;
+
+        const requests = [];
+
+        for (let time = 0; time < concurrency; time++) {
+          const init = { method };
+
+          if (!['GET', 'HEAD'].includes(method)) {
+            init.body = body;
+          }
+
+          requests.push(
+            fetch(realUrl, init)
+          );
+        }
+
+        Promise.all(requests)
+          .then(async (data) => {
+            const results = await Promise.all(data.map(d => d.text()));
+            return results.join('\n');
+          })
+          .then((content) => {
+            $('#submit').html('Submit');
+
+            editor3.setValue(content);
+          })
+          .catch((error) => {
+            $('#submit').html('Submit');
+            $('#submit').removeAttr('disabled');
+            console.log(error);
+            alert(error.message);
+          });
+
+        return false;
+      });
+    });
+  </script>
 </body>
+
 </html>

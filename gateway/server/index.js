@@ -47,7 +47,7 @@ class Gateway {
             }
 
             const tmpPath = this.render(v.url, { FUNCTION_DIR });
-            v.url = url.pathToFileURL(path.normalize(tmpPath));
+            v.url = url.pathToFileURL(path.normalize(tmpPath)).href;
         });
     }
 
@@ -193,6 +193,8 @@ class Gateway {
                 return res.end(`function ${name} not found`);
             }
 
+            this.renderUrls([_profile]);
+
             const ret = {
                 function_profile: _profile
             };
@@ -230,11 +232,12 @@ class Gateway {
             if (filename !== path.basename(MOCK_FUNCTION_PROFILE_PATH)) {
                 return;
             }
+
             const profile = JSON.parse(await fs.promises.readFile(MOCK_FUNCTION_PROFILE_PATH, 'utf-8'));
             this.renderUrls(profile);
 
-            if (!_.isEqual(tmp, MOCK_FUNCTION_PROFILE)) {
-                MOCK_FUNCTION_PROFILE = tmp;
+            if (!_.isEqual(profile, MOCK_FUNCTION_PROFILE)) {
+                MOCK_FUNCTION_PROFILE = profile;
                 this.setFunctionProfile(MOCK_FUNCTION_PROFILE, 'IMMEDIATELY');
             }
 

@@ -15,7 +15,7 @@ ENV NOSLATE_PATH=/usr/local/noslate \
 ENV NOSLATE_BIN=${NOSLATE_PATH}/bin \
     NOSLATED_WORKDIR=${NOSLATE_WORKDIR}/noslated \
     TURF_WORKDIR=${NOSLATE_WORKDIR}/turf \
-    LIBTURF_PATH=${NOSLATE_WORKDIR}/bin/libturf.so \
+    LIBTURF_PATH=${NOSLATE_BIN}/libturf.so \
     NOSLATE_LOGDIR=${NOSLATE_WORKDIR}/logs
 
 RUN apt-get update && \

@@ -3,7 +3,6 @@
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
-const { pipeline } = require('stream/promises');
 
 const express = require('express');
 const _ = require('lodash');
@@ -157,7 +156,8 @@ class Gateway {
 
             try {
                 response = await this.agent.invoke(name, req, metadata);
-                await pipeline(response, res);
+                // TODO(Umuoy): use pipeline
+                response.pipe(res);
                 end = Date.now();
             } catch (e) {
                 end = Date.now();

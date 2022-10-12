@@ -33,7 +33,7 @@ RUN mkdir -p ${NOSLATE_PATH} && \
     mkdir -p ${TURF_WORKDIR}/overlay && \
     mkdir -p ${TURF_WORKDIR}/runtime && \
     mkdir -p ${TURF_WORKDIR}/runtime/aworker/bin && \
-    mkdir -p ${TURF_WORKDIR}/runtime/nodejs-v16/bin && \
+    mkdir -p ${TURF_WORKDIR}/runtime/nodejs/bin && \
     mkdir -p ${TURF_WORKDIR}/sandbox && \
     chmod -R 777 ${NOSLATE_WORKDIR} && \
     chmod -R 555 ${TURF_WORKDIR}/runtime
@@ -49,6 +49,6 @@ RUN tar -zxvf noslate.tar.gz -C ${NOSLATE_PATH} && \
     ln -s ${NOSLATE_BIN}/aworker.shell /usr/local/bin/aworker.shell && \
     ln -s ${NOSLATE_BIN}/node /usr/local/bin/node && \
     ln -s ${NOSLATE_BIN}/aworker ${TURF_WORKDIR}/runtime/aworker/bin/aworker && \
-    ln -s ${NOSLATE_BIN}/node ${TURF_WORKDIR}/runtime/nodejs-v16/bin/node && \
+    ln -s ${NOSLATE_BIN}/node ${TURF_WORKDIR}/runtime/nodejs/bin/node && \
     ln -s ${NOSLATE_BIN}/libturf.so ${TURF_WORKDIR}/libturf.so && \
     rm -f noslate.tar.gz

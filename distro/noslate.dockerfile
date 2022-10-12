@@ -2,8 +2,7 @@ ARG BUILDPLATFORM=
 
 FROM --platform=${BUILDPLATFORM:-linux/amd64} ubuntu:focal
 
-ARG NOSLATE_URL= \
-    NODE_VERSION=
+ARG NODE_VERSION=
 
 LABEL org.opencontainers.image.authors="noslate-support@@list.alibaba-inc.com" \
       org.opencontainers.image.source="https://github.com/noslate-project/noslate" \
@@ -40,8 +39,8 @@ RUN mkdir -p ${NOSLATE_PATH} && \
     chmod -R 555 ${TURF_WORKDIR}/runtime
 
 # install noslate and requirements
-RUN curl -sLo ./noslate.tar.gz ${NOSLATE_URL} && \
-    tar -zxvf noslate.tar.gz -C ${NOSLATE_PATH} && \
+COPY ./build/noslate.tar.gz noslate.tar.gz
+RUN tar -zxvf noslate.tar.gz -C ${NOSLATE_PATH} && \
     chmod +x ${NOSLATE_BIN}/turf && \
     chmod +x ${NOSLATE_BIN}/aworker && \
     chmod +x ${NOSLATE_BIN}/node && \

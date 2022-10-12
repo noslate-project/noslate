@@ -7,6 +7,7 @@ site/build
 # Generated files
 .docusaurus
 .cache-loader
+distro/build
 
 # Misc
 .DS_Store

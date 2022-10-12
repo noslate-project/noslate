@@ -7,6 +7,9 @@
     "signature": "md5:12345",
     "worker": {
       "reservationCount": 0
+    },
+    "resourceLimit": {
+      "memory": 134217728
     }
   },
   {
@@ -17,6 +20,9 @@
     "signature": "md5:12345",
     "worker": {
       "reservationCount": 0
+    },
+    "resourceLimit": {
+      "memory": 134217728
     }
   },
   {
@@ -27,6 +33,9 @@
     "signature": "md5:12345",
     "worker": {
       "reservationCount": 0
+    },
+    "resourceLimit": {
+      "memory": 134217728
     }
   },
   {
@@ -37,6 +46,9 @@
     "signature": "md5:12345",
     "worker": {
       "reservationCount": 0
+    },
+    "resourceLimit": {
+      "memory": 134217728
     }
   },
   {
@@ -47,6 +59,9 @@
     "signature": "md5:12345",
     "worker": {
       "reservationCount": 0
+    },
+    "resourceLimit": {
+      "memory": 134217728
     }
   }
 ]

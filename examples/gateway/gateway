@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const Gateway = require('.');
+
+const gateway = new Gateway();
+
+gateway.start();

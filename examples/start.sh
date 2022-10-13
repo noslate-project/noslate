@@ -17,7 +17,6 @@ log_exit() {
 }
 
 start_turf() {
-  # turf need process group leader
   nohup ${NOSLATE_BIN}/turf -D -f >${TURF_LOG} 2>&1 || log_exit turfd &
   log "[Noslate - Turf] turfd started."
 }

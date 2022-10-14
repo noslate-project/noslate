@@ -51,5 +51,4 @@ RUN tar -zxvf noslate.tar.gz -C ${NOSLATE_PATH} && \
     ln -s ${NOSLATE_BIN}/node /usr/local/bin/node && \
     ln -s ${NOSLATE_BIN}/aworker ${TURF_WORKDIR}/runtime/aworker/bin/aworker && \
     ln -s ${NOSLATE_BIN}/node ${TURF_WORKDIR}/runtime/nodejs/bin/node && \
-    ln -s ${NOSLATE_BIN}/libturf.so ${TURF_WORKDIR}/libturf.so && \
     rm -f noslate.tar.gz

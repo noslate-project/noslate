@@ -3,7 +3,7 @@
 
 ```
 interface DaprInvokeOptions {
-    app: string;
+    appId: string;
     methodName: string;
     data: Buffer;
 }

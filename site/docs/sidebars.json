@@ -59,7 +59,8 @@
       "collapsible": false,
       "items": [
         "noslate_workers/tutorials/custom_gateway",
-        "noslate_workers/tutorials/custom_outbound"
+        "noslate_workers/tutorials/custom_outbound",
+        "noslate_workers/tutorials/start_noslate_workers"
       ]
     },
     {

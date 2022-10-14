@@ -1,6 +1,6 @@
 # Noslated Client
 
-```
+```typescript
 /**
  * Noslated Client
  */
@@ -19,29 +19,15 @@ interface NoslatedClient {
     useInspector(funcName: string, use: boolean): Promise<void>;
 }
 
-interface ITriggerResponse {
+interface ITriggerResponse extends Readable {
     status: number;
     metadata: IMetadata;
-}
-
-interface IMetadata {
-    url: string;
-    method: string;
-    headers: IKeyValuePair[];
-    baggage: IKeyValuePair[];
-    requestId?: string;
-}
-
-interface IKeyValuePair {
-    key: string;
-    value: string;
 }
 
 interface IMetadata {
   url?: string;
   method?: string;
   headers?: [string, string][];
-  baggage?: [string, string][];
   timeout?: number;
   requestId?: string;
 }
@@ -54,6 +40,11 @@ interface BaseFunctionProfile {
   signature: string;
 }
 
+/**
+ * + FILO: 先进后出
+ * + FIFO: 先进先出
+ * + LCC: 最少当前并发
+ */
 type ShrinkStrategy = 'FILO' | 'FIFO' | 'LCC';
 
 interface ProcessFunctionProfile {
@@ -62,9 +53,6 @@ interface ProcessFunctionProfile {
     cpu?: number;
   };
   worker?: {
-    // + FILO: 先进后出
-    // + FIFO: 先进先出
-    // + LCC: 最少当前并发
     shrinkStrategy?: ShrinkStrategy;
     initializationTimeout?: number;
     maxActivateRequests?: number;

@@ -1,16 +1,23 @@
 # 自定义 Gateway
 
-跟随本教程，我们将实现一个基于 HTTP 的自定义 Gateway 模块，同时可以通过 sqllite 持久化存储 Worker 函数信息。
+跟随本教程，我们将实现一个基于 HTTP 的自定义 Gateway 模块，通过监听 9000 端口，处理调用请求。
 
-## 数据存储
-在本示例中，我们选择 sqlite3 作为存储，首先先创建一个数据库：
+本教程中涉及的代码：[Custom Gateway](https://github.com/noslate-project/noslate/tree/main/examples/gateway)
+
+## 配置存储
+为了方便体验 Gateway 的效果，我们引入 sqlite3 将 Noslated Workers 的函数配置信息持久化存储。
+
+初始化数据库：
+
+```bash title="创建 gateway.db"
+sqlite3 gateway.db
 ```
-> sqlite3 gateway.db
-```
-然后我们创建两张表，用来存储 Worker 函数配置以及服务路由配置：
-```
-sqlite> CREATE TABLE function_profile (
-  id INT PRIMARY KEY NOT NULL,
+
+```sql title="创建 function_profile 及 service_profile 数据表"
+CREATE TABLE function_profile (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  createdAt TEXT NOT NULL,
+  updatedAt TEXT NOT NULL,
   name CHAR(50) NOT NULL,
   codeInfo TEXT NOT NULL,
   namespace CHAR(50),
@@ -20,98 +27,167 @@ sqlite> CREATE TABLE function_profile (
   rateLimit TEXT
 );
 
-sqlite> CREATE TABLE service_profile (
-  id INT PRIMARY KEY NOT NULL,
+CREATE TABLE service_profile (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  createdAt TEXT NOT NULL,
+  updatedAt TEXT NOT NULL,
   name CHAR(50) NOT NULL,
   type CHAR(50) NOT NULL,
   selectors TEXT NOT NULL
 );
 ```
 
-## HTTP Server
-在本示例中，我们选择 expressjs 作为服务框架。
-```
-> npm install express --save
+## Gateway 实现
+
+本教程中我们选择 [Express](https://expressjs.com/) 作为 Gateway 的服务框架，你可以使用任意熟练的 Web 框架来替代。
+
+```bash
+npm install express --save
 ```
 
-gateway 提供如下路由：
-```
-// gateway.js
-app.post('/invoke', this.invoke);
+在 Gateway 中我们会涉及配置的增删改查以及函数的调用，因此会提供如下如有供访问：
 
-// function、service CURD
+```js title="Gateway 路由"
+// 函数、服务调用
+app.post('/invoke', this.invokeHandler);
+
+// 新增函数
 app.post('/addFunction', this.addFunction);
+// 新增服务
 app.post('/addService', this.addService);
+// 查看函数
 app.get('/listFunction', this.listFunction);
+// 查看服务
 app.get('/listService', this.listService);
+// 移除函数
 app.post('/removeFunction', this.removeFunction);
+// 移除服务
 app.post('/removeService', this.removeService);
 ```
 
-然后我们初始化 sqllite db 和 noslated client。
+接下来我们主要对 `/invoke` 的 invokeHandler 展开讲解，其他的增删改查实现可以参考[示例代码](https://github.com/noslate-project/noslate/tree/main/examples/gateway)或者按照自己的需求实现。
 
-```
-// init db
-this.db = new Sequelize({
-  dialect: 'sqlite',
-  storage: './gateway.db'
-});
+### Noslated Client
+Noslated Client 负责将 Noslated 和 Gateway 进行连接，通过它可以将请求转发到 Noslated Workers 系统中执行。因此，需要先将它初始化。
 
-// init agent
+```js title="初始化 Noslated Client"
 const NoslatedClient = require(process.env.NOSLATE_PATH).NoslatedClient;
 this.agent = new NoslatedClient();
 
 await this.agent.start();
+await this.updateFunctionProfiles();
+await this.updateServiceProfiles();
 ```
 
-### /invoke
-将请求转发到 Noslate 并执行是整个 Gateway 的核心能力，所以先来看这部分的实现。
+### 读取数据库配置并生效
+我们将函数配置存储在数据库中，启动时需要读取出来并设置到 Noslated 中。将配置读取出来，并转换成所需格式后，调用 NoslatedClient 提供的 `setFunctionProfile` 和 `setServiceProfile` 更新配置。
 
-在当前 gateway 实现中，我们约定具体调用的目标以 query 参数 target 传入，格式为 —— **目标类型|目标名称**，目标类型取值为 function 或 service。
+格式参考：
+1. [Worker 函数配置](../references/function_profile.md)
+2. [服务路由配置](../references/service_profile.md)
 
-在此，以 HTTP Server 为例介绍如何实现一个自定义的 Gateway 模块：
+目前 Noslated 没有内置配置管理能力，当新配置到来时，会和之前的配置对比差异（处理容器变化），并全量覆盖，所以每次配置发生变化时（如：增、删、改）都需要重新设置生效。
 
-#### 1. 创建一个 HTTP Server
-```
-const http = require('node:http');
+```js title="更新配置"
+// 更新 Worker 函数配置
+async updateFunctionProfiles() {
+  let profiles = await FunctionProfile.findAll({
+    raw: true
+  });
 
-const server = http.createServer((req, res) => {
-  res.end();
-});
+  profiles = profiles.map((profile) => {
+    return Object.assign({
+      name: profile.name,
+      namespace: profile.namespace,
+      worker: JSON.parse(profile.workerConfig),
+      resourceLimit: JSON.parse(profile.resourceLimit),
+      environments: JSON.parse(profile.environments),
+      rateLimit: JSON.parse(profile.rateLimit)
+    }, JSON.parse(profile.codeInfo));
+  });
 
-server.listen(8000);
-```
-
-#### 2. 创建 Agent 对象并初始化
-```
-const NoslatedClient = require(process.env.NOSLATE_PATH).NoslatedClient;
-const client = new NoslatedClient();
-
-await client.start();
-```
-
-### 3. 解析 HTTP 请求并转发
-```
-// 调用目标是请求头中的 x-noslate-target 指定
-const target = headers['x-noslate-target'];
-const targetArr = target.split(':);
-let _res;
-
-if (targetArr[0] === 'service') {
-    _res = await invokeService(targetArr[1], req, { headers: req.headers, url: req.url, method: req.method });
-} else {
-    _res = await invoke(targetArr[1], req, { headers: req.headers, url: req.url, method: req.method });
+  await this.client.setFunctionProfile(profiles);
 }
 
-_res.pipe(res);
+// 更新服务路由配置
+async updateServiceProfiles() {
+  let profiles = await ServiceProfile.findAll({
+    raw: true
+  });
+
+  profiles = profiles.map((profile) => {
+    let item = {
+      name: profile.name,
+      type: profile.type
+    };
+
+    const selectors = JSON.parse(profile.selectors);
+
+    if (profile.type === 'default') {
+      item.selector = selectors[0].selector;
+    } else {
+      item.selectors = selectors;
+    }
+
+    return item;
+  });
+
+  await this.client.setServiceProfile(profiles);
+}
 ```
 
-### 4. 支持更新配置
-订阅远端 Worker 函数配置，并更新
-```
-setInterval(async () => {
-    const config = await fetch(configUrl);
+### invokeHandler
+在本教程中，我们约定通过 HTTP Headers 里的 `x-noslated-dispatch` 来识别调用的是哪个服务或函数，格式为 `(function|service):${name}`，如：
 
-    await agent.setFunctionProfile(url);
-}, 60 * 1000);
+```bash title="curl 调用示例"
+curl http://127.0.0.1:9000/invoke -X POST -H 'x-noslated-dispatch: service:A' -H 'x-noslated-request-id: 123'
+curl http://127.0.0.1:9000/invoke -X POST -H 'x-noslated-dispatch: function:B' -H 'x-noslated-request-id: 456'
+```
+另外，可以通过指定 `x-noslated-request-id` 来跟踪请求在 Noslated 的执行情况。
+
+NoslatedClient 提供了 `invoke` 和 `invokeService` 方法，用来处理不同调用类型，具体的方法签名可以查看 [API References](../../api/sdk.md)。
+
+两个方法都接受流为入参，并返回流作为结果，因此可以直接使用 [Request](https://expressjs.com/en/4x/api.html#req) 和 [Response](https://expressjs.com/en/4x/api.html#res) 对象。
+
+调用需要传入的 metadata，其中的 method、url、headers 在函数中都可以获取到，用来识别调用信息。需要注意的是 headers 的传入格式比较特殊，需要将 KeyValue 的 Map 装换成 Array，如：
+
+```js title="转换示例"
+// 转换前
+{
+  "user-agent": "xxx"
+}
+// 转换后
+[
+  ["user-agent", "xxx"]
+]
+```
+
+```js title="invokeHandler 示例"
+async invoke(invokeTarget, req, res) {
+  const { type, alias } = invokeTarget;
+
+  const metadata = {
+    method: req.method,
+    url: req.url,
+    headers: objectToArray(req.headers),
+    requestId: req.headers['x-noslated-request-id'] || 'unknown'
+  };
+
+  try {
+    let response;
+
+    if (type === 'function') {
+      response = await this.client.invoke(alias, req, metadata);
+    } else if (type === 'service') {
+      response = await this.client.invokeService(alias, req, metadata);
+    } else {
+      res.status(500).send('invoke type not supported.');
+      return;
+    }
+
+    response.pipe(res);
+  } catch (error) {
+    res.status(500).send(error.message + '\n');
+  }
+}
 ```

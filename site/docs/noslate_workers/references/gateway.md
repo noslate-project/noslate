@@ -5,7 +5,7 @@
 Gateway 需要将外部流量的格式转换成 Data Plane 可用的格式：
 1. 函数/服务识别名称
 2. Buffer/Readable Stream 调用数据
-3. Metadata 信息，包含：url、method、headers、baggage，timeout，requestId 等
+3. Metadata 信息，包含：url、method、headers、timeout、requestId 等
 
 针对不同的请求形式，需要做不同的转换：
 

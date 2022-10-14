@@ -15,8 +15,9 @@ ENV NOSLATE_PATH=/usr/local/noslate \
 ENV NOSLATE_BIN=${NOSLATE_PATH}/bin \
     NOSLATED_WORKDIR=${NOSLATE_WORKDIR}/noslated \
     TURF_WORKDIR=${NOSLATE_WORKDIR}/turf \
-    LIBTURF_PATH=${NOSLATE_BIN}/libturf.so \
     NOSLATE_LOGDIR=${NOSLATE_WORKDIR}/logs
+
+ENV LIBTURF_PATH=${NOSLATE_BIN}/libturf.so
 
 RUN apt-get update && \
     apt-get install -y libatomic1 unzip procps curl && \

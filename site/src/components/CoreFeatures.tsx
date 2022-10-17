@@ -1,3 +1,4 @@
+import Translate from '@docusaurus/Translate'
 import React from 'react'
 import { styled } from '../styled'
 
@@ -88,20 +89,20 @@ const featurs = [
   {
     icon: 'icon-huojiancopy',
     title: 'Noslate Workers',
-    description: `Web-interoperable 规范的，轻量 Web API 标准运行时`,
+    description: <Translate id="homepage.workers"></Translate>,
   },
   {
     icon: 'icon-debug',
     title: 'Noslate Debugger',
-    description: '面向崩溃和异常场景的，Corefile 离线诊断',
+    description: <Translate id="homepage.debugger"></Translate>,
     isMiddle: true
   },
   {
     icon: 'icon-MPIS-Upgrade',
     title: 'Node.js Distribution',
-    description: '极致优化 Serverless 弹性的，冷启动快 ~120%',
-  },
-] as FeatureProps[]
+    description: <Translate id="homepage.distr"></Translate>,
+  }
+] as unknown as FeatureProps[]
 
 export function CoreFeatures() {
   return (

@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Noslate",
+    "description": "The title in the navbar"
+  },
+  "item.label.Introduction": {
+    "message": "Introduction",
+    "description": "Navbar item with label Introduction"
+  },
+  "item.label.Noslate Workers": {
+    "message": "Noslate Workers",
+    "description": "Navbar item with label Noslate Workers"
+  },
+  "item.label.Noslate Debugger": {
+    "message": "Noslate Debugger",
+    "description": "Navbar item with label Noslate Debugger"
+  },
+  "item.label.Node.js Distribution": {
+    "message": "Node.js Distribution",
+    "description": "Navbar item with label Node.js Distribution"
+  },
+  "item.label.API References": {
+    "message": "API References",
+    "description": "Navbar item with label API References"
+  }
+}

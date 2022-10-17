@@ -63,6 +63,10 @@ const config = {
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
           },
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
         ],
       },
       algolia: {

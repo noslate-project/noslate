@@ -123,7 +123,7 @@ const Grid = styled('div', {
 
 export function EssentialsComponents() {
   return (
-    <Block title="基础组件" subtitle="All the features you need for development" background="light">
+    <Block title="Basic Components" subtitle="All the features you need for development" background="light">
       <Grid>
         {components.map((component, index) => (
           <Component key={index} {...component} />

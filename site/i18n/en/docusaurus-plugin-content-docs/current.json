@@ -1,0 +1,82 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.common.category.快速入门": {
+    "message": "Quick Start",
+    "description": "The label for category 快速入门 in sidebar common"
+  },
+  "sidebar.common.category.组件介绍": {
+    "message": "Components Introduction",
+    "description": "The label for category 组件介绍 in sidebar common"
+  },
+  "sidebar.common.category.Aworker": {
+    "message": "Aworker",
+    "description": "The label for category Aworker in sidebar common"
+  },
+  "sidebar.common.category.基本概念": {
+    "message": "Basic Concepts",
+    "description": "The label for category 基本概念 in sidebar common"
+  },
+  "sidebar.common.category.教程": {
+    "message": "Tutorials",
+    "description": "The label for category 教程 in sidebar common"
+  },
+  "sidebar.common.link.版本历史": {
+    "message": "Version History",
+    "description": "The label for link 版本历史 in sidebar common, linking to https://github.com/noslate-project/noslate/releases"
+  },
+  "sidebar.common.doc.Noslate Workers 介绍": {
+    "message": "Noslate Workers Introduction",
+    "description": "The label for the doc item Noslate Workers 介绍 in sidebar common, linking to the doc noslate_workers/intro"
+  },
+  "sidebar.api.category.Noslated": {
+    "message": "Noslated",
+    "description": "The label for category Noslated in sidebar api"
+  },
+  "sidebar.api.link.Aworker": {
+    "message": "Aworker",
+    "description": "The label for link Aworker in sidebar api, linking to https://noslate-project.github.io/aworker/"
+  },
+  "sidebar.node_js.doc.Noslate Node.js 发行版介绍": {
+    "message": "Noslate Node.js distribution introduction",
+    "description": "The label for the doc item Noslate Node.js 发行版介绍 in sidebar node_js, linking to the doc node_js/intro"
+  },
+  "sidebar.node_js.doc.用户代码加载加速": {
+    "message": "Code execution acceleration",
+    "description": "The label for the doc item 用户代码加载加速 in sidebar node_js, linking to the doc node_js/rrc"
+  },
+  "sidebar.node_js.doc.面向平台架构的优化": {
+    "message": "Platform Architecture-Oriented Optimization",
+    "description": "The label for the doc item 面向平台架构的优化 in sidebar node_js, linking to the doc node_js/arch"
+  },
+  "sidebar.node_js.doc.版本历史": {
+    "message": "Version History",
+    "description": "The label for the doc item 版本历史 in sidebar node_js, linking to the doc node_js/versions"
+  },
+  "sidebar.debugger.category.Andb - 离线调试器": {
+    "message": "Andb - Offline Debuger",
+    "description": "The label for category Andb - 离线调试器 in sidebar debugger"
+  },
+  "sidebar.debugger.category.CLI": {
+    "message": "CLI",
+    "description": "The label for category CLI in sidebar debugger"
+  },
+  "sidebar.debugger.category.Arthur - CoreDumper": {
+    "message": "Arthur - CoreDumper",
+    "description": "The label for category Arthur - CoreDumper in sidebar debugger"
+  },
+  "sidebar.debugger.category.Dwf - 调试信息": {
+    "message": "Dwf - Debug Info",
+    "description": "The label for category Dwf - 调试信息 in sidebar debugger"
+  },
+  "sidebar.debugger.doc.Noslate Debugger 介绍": {
+    "message": "Noslate Debugger Introduction",
+    "description": "The label for the doc item Noslate Debugger 介绍 in sidebar debugger, linking to the doc debugger/intro"
+  },
+  "sidebar.project.doc.Noslate 项目整体介绍": {
+    "message": "Noslate Project Overview",
+    "description": "The label for the doc item Noslate 项目整体介绍 in sidebar project, linking to the doc project/intro"
+  }
+}

@@ -3,6 +3,7 @@ import { useWindupString, CharWrapper } from 'windups';
 import { styled } from '../styled';
 import { keyframes } from '@stitches/react';
 import { VAR } from '../var';
+import Translate from '@docusaurus/Translate';
 
 const Container = styled('div', {
   paddingTop: 100,
@@ -169,11 +170,11 @@ export function Splash() {
         ))}
         "
       </SubTitle>
-      <Lead><strong>Noslate</strong> 是一款优雅、现代且完全可自定义的 JavaScript 轻量运行时</Lead>
+      <Lead><strong>Noslate</strong> <Translate id="homepage.intro"></Translate></Lead>
       {/* <Lead><strong>Noslate</strong>  is an elegant, modern and fully customizable serverless runtime.</Lead> */}
       <ButtonGroup>
         <Button type="main" href="/docs/project/intro">
-          快速开始
+          <Translate id="homepage.start"></Translate>
         </Button>
         <Button type="secondary" href="https://github.com/noslate-project/noslate" target="_blank">
           <Icon className="iconfont icon-github-fill" />
@@ -181,7 +182,7 @@ export function Splash() {
         </Button>
       </ButtonGroup>
       <div style={{marginTop: 20}} >
-          <TryTryLink href="http://noslate-labs.midwayjs.org/" target="_blank" ><i className="iconfont icon-huojiancopy" style={{fontSize: 20}} ></i> 在线体验 Noslate Workers</TryTryLink>
+          <TryTryLink href="http://noslate-labs.midwayjs.org/" target="_blank" ><i className="iconfont icon-huojiancopy" style={{fontSize: 20}} ></i> <Translate id="homepage.trytry"></Translate> Noslate Workers</TryTryLink>
       </div>
     </Container>
   );

@@ -8,7 +8,7 @@
 
 </div>
 
-Relying on the self-developed Web-interoperable runtime Aworker, it provides a <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#926DDE' }}>lightweight</span>, <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#926DDE' }}>nearly 0 cost cold-start</span> JavaScript Serverless runtime environment. Through it, lightweight serverless capabilities can be easily integrated into the existing architecture.
+Relying on the Web-interoperable runtime Aworker, it provides a <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#926DDE' }}>lightweight</span>, <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#926DDE' }}>nearly 0 cost cold-start</span> JavaScript Serverless runtime environment. Through it, lightweight serverless capabilities can be easily integrated into the existing architecture.
 
 Unlike traditional FaaS architectures, this is a lightweight task unit on top of common application containers. Benefited from the excellent dynamic task high-density mixing and isolation features, and the near-zero cold-start feature based on the Task State Replication API, tasks can be started and stopped immediately, and no need to care about the orchestration of task nodes in the entire cluster.
 

@@ -3,6 +3,7 @@ PROJECT_ROOT=../..
 NOSLATE_VERSION=
 NOSLATE_URL=
 DOCKER_BUILD_ARGS=
+BUILD_ID=trunk
 
 include $(PROJECT_ROOT)/build/Makefiles/platform.mk
 
@@ -11,7 +12,7 @@ build/noslate.tar.gz:
 	if [ ! -z "$(NOSLATE_URL)" ]; then \
 		curl -sLo $@ $(NOSLATE_URL); \
 	else \
-		cp $(PROJECT_ROOT)/out/archives/noslate-$(PLATFORM)-$(UNAME_M)-trunk.tar.gz $@; \
+		cp $(PROJECT_ROOT)/out/archives/noslate-$(PLATFORM)-$(UNAME_M)-$(BUILD_ID).tar.gz $@; \
 	fi
 
 noslate: build/noslate.tar.gz

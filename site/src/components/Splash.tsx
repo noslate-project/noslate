@@ -178,7 +178,7 @@ export function Splash() {
         </Button>
         <Button type="secondary" href="https://github.com/noslate-project/noslate" target="_blank">
           <Icon className="iconfont icon-github-fill" />
-          Github
+          GitHub
         </Button>
       </ButtonGroup>
       <div style={{marginTop: 20}} >

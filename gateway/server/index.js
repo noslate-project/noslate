@@ -13,14 +13,11 @@ const {
     PORT
 } = process.env;
 
-const BUILD_DIR = path.join(NOSLATE_PATH, 'build/');
-const FUNCTION_DIR = path.join(__dirname, 'functions/');
-const { AliceAgent } = require(path.join(BUILD_DIR, 'sdk'));
+const { NoslatedClient } = require(NOSLATE_PATH);
 
-const MOCK_FUNCTION_PROFILE_FILE_NAME = 'MOCK_FUNCTION_PROFILE.json';
-const MOCK_FUNCTION_PROFILE_PATH = path.join(__dirname, MOCK_FUNCTION_PROFILE_FILE_NAME);
-let MOCK_FUNCTION_PROFILE = JSON.parse(fs.readFileSync(MOCK_FUNCTION_PROFILE_PATH));
-
+const FUNCTIONS_DIR = path.join(__dirname, '../functions');
+const FUNCTION_PROFILES_PATH = path.join(FUNCTIONS_DIR, 'profiles.json');
+let FUNCTION_PROFILES = JSON.parse(fs.readFileSync(FUNCTION_PROFILES_PATH));
 
 class Gateway {
     constructor() {
@@ -28,10 +25,10 @@ class Gateway {
 
         this.logger = console;
 
-        this.agent = new AliceAgent();
+        this.agent = new NoslatedClient();
 
-        if (!fs.existsSync(FUNCTION_DIR)) {
-            fs.mkdirSync(FUNCTION_DIR);
+        if (!fs.existsSync(FUNCTIONS_DIR)) {
+            fs.mkdirSync(FUNCTIONS_DIR);
         }
     }
 
@@ -45,14 +42,14 @@ class Gateway {
                 return;
             }
 
-            const tmpPath = this.render(v.url, { FUNCTION_DIR });
+            const tmpPath = this.render(v.url, { FUNCTION_DIR: FUNCTIONS_DIR });
             v.url = url.pathToFileURL(path.normalize(tmpPath)).href;
         });
     }
 
     getFunctionHeaders(req) {
         let ret;
-        const b64 = req.get('x-alice-headers');
+        const b64 = req.get('x-noslated-headers');
         if (!b64) {
             ret = [];
         } else {
@@ -129,7 +126,7 @@ class Gateway {
             const html = await fs.promises.readFile(path.join(__dirname, 'static', 'index.ejs'), 'utf-8');
             res.set('Content-Type', 'text/html');
             res.end(ejs.render(html, {
-                functions: MOCK_FUNCTION_PROFILE
+                functions: FUNCTION_PROFILES
             }));
         });
 
@@ -180,13 +177,13 @@ class Gateway {
         });
 
         this.app.get('/listFunctions', async (req, res) => {
-            res.json(MOCK_FUNCTION_PROFILE);
+            res.json(FUNCTION_PROFILES);
         });
 
         this.app.get('/function/:id', async (req, res) => {
             const name = req.params.id;
 
-            const function_profiles = JSON.parse(await fs.promises.readFile(MOCK_FUNCTION_PROFILE_PATH));
+            const function_profiles = JSON.parse(await fs.promises.readFile(FUNCTION_PROFILES_PATH));
             const _profile = function_profiles.find((v, _) => v.name === name);
 
             if (!_profile) {
@@ -217,29 +214,27 @@ class Gateway {
     }
 
     async start() {
+        await this.agent.start();
+
         await this.initHTTPServer();
 
-        this.renderUrls(MOCK_FUNCTION_PROFILE);
+        this.renderUrls(FUNCTION_PROFILES);
 
-        await this.setFunctionProfile(MOCK_FUNCTION_PROFILE, 'IMMEDIATELY');
+        await this.setFunctionProfile(FUNCTION_PROFILES, 'IMMEDIATELY');
 
-        for (const client of this.agent.dataPlaneClientManager.clients()) {
-            await client.ready();
-        }
-
-        fs.watch(MOCK_FUNCTION_PROFILE_PATH, { persistent: true }, async (type, filename) => {
+        fs.watch(FUNCTION_PROFILES_PATH, { persistent: true }, async (type, filename) => {
             this.logger.info(`Watching ${filename} changed`);
 
-            if (filename !== path.basename(MOCK_FUNCTION_PROFILE_PATH)) {
+            if (filename !== path.basename(FUNCTION_PROFILES_PATH)) {
                 return;
             }
 
-            const profile = JSON.parse(await fs.promises.readFile(MOCK_FUNCTION_PROFILE_PATH, 'utf-8'));
+            const profile = JSON.parse(await fs.promises.readFile(FUNCTION_PROFILES_PATH, 'utf-8'));
             this.renderUrls(profile);
 
-            if (!_.isEqual(profile, MOCK_FUNCTION_PROFILE)) {
-                MOCK_FUNCTION_PROFILE = profile;
-                this.setFunctionProfile(MOCK_FUNCTION_PROFILE, 'IMMEDIATELY');
+            if (!_.isEqual(profile, FUNCTION_PROFILES)) {
+                FUNCTION_PROFILES = profile;
+                this.setFunctionProfile(FUNCTION_PROFILES, 'IMMEDIATELY');
             }
 
         });

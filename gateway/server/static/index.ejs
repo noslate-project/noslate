@@ -59,6 +59,7 @@
               <div class="mb-3">
                 <label for="url" class="form-label">Request Body</label>
                 <div id="request-body" style="height: 200px; margin-bottom: 10px; border: 1px solid #eee;"></div>
+                <div id="bodyHelp" class="form-text">Doesn't work when Method is GET or HEAD.</div>
               </div>
 
               <div class="mb-3">
@@ -167,7 +168,8 @@
       });
       $('.view').click(() => {
         const funcName = $('#funcName').val();
-        const realUrl = `/invoke/${funcName}`;
+        const url = $('#url').val();
+        const realUrl = `/invoke/${funcName}${url}`;
         window.open(realUrl);
       });
 
@@ -183,7 +185,7 @@
         const method = $('#method').val();
         const concurrency = parseInt($('#concurrency').val() || '1', 10);
 
-        const realUrl = `/invoke/${funcName}`;
+        const realUrl = `/invoke/${funcName}${url}`;
 
         const requests = [];
 

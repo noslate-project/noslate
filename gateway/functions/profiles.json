@@ -6,6 +6,7 @@
     "sourceFile": "index.js",
     "signature": "md5:12345",
     "worker": {
+      "disposable": true,
       "reservationCount": 0
     },
     "resourceLimit": {
@@ -19,6 +20,7 @@
     "sourceFile": "index.js",
     "signature": "md5:12345",
     "worker": {
+      "disposable": true,
       "reservationCount": 0
     },
     "resourceLimit": {
@@ -32,6 +34,7 @@
     "sourceFile": "index.js",
     "signature": "md5:12345",
     "worker": {
+      "disposable": true,
       "reservationCount": 0
     },
     "resourceLimit": {
@@ -45,6 +48,7 @@
     "sourceFile": "index.js",
     "signature": "md5:12345",
     "worker": {
+      "disposable": true,
       "reservationCount": 0
     },
     "resourceLimit": {
@@ -58,6 +62,7 @@
     "sourceFile": "index.js",
     "signature": "md5:12345",
     "worker": {
+      "disposable": true,
       "reservationCount": 0
     },
     "resourceLimit": {

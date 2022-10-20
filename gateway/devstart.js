@@ -6,14 +6,12 @@ const assert = require('assert');
 
 const {
   NOSLATE_PATH,
-  ALICE_WORKDIR,
-  NOSLATE_WORKDIR,
+  NOSLATED_WORKDIR,
   TURF_WORKDIR
 } = process.env;
 
 assert(NOSLATE_PATH);
-assert(ALICE_WORKDIR);
-assert(NOSLATE_WORKDIR);
+assert(NOSLATED_WORKDIR);
 assert(TURF_WORKDIR);
 
 const httpd = cp.spawn(path.join(__dirname, 'server/httpd'), { stdio: 'pipe', detached: false });

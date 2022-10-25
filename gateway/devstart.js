@@ -7,7 +7,7 @@ const assert = require('assert');
 const {
   NOSLATE_PATH,
   NOSLATED_WORKDIR,
-  TURF_WORKDIR
+  TURF_WORKDIR,
 } = process.env;
 
 assert(NOSLATE_PATH);
@@ -23,7 +23,7 @@ listen('control   ', control);
 const data = cp.spawn(path.join(NOSLATE_PATH, 'bin/data_plane'), { stdio: 'pipe', detached: false });
 listen('data      ', data);
 
-const turfd = cp.spawn(path.join(NOSLATE_PATH, 'bin/turf'), ['-D', '-f'], { stdio: 'ignore', detached: false });
+const turfd = cp.spawn(path.join(NOSLATE_PATH, 'bin/turf'), [ '-D', '-f' ], { stdio: 'ignore', detached: false });
 listen('turfd     ', turfd);
 
 process.on('SIGINT', () => {
@@ -49,7 +49,7 @@ function listen(name, cp) {
   });
 
   if (name === 'turfd     ') return;
-  const stds = ['stdout', 'stderr'];
+  const stds = [ 'stdout', 'stderr' ];
   const rest = { stdout: '', stderr: '' };
 
   for (const std of stds) {

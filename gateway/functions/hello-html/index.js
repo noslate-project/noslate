@@ -6,10 +6,10 @@ const html = `<!DOCTYPE html>
     <p>Hello HTML World!</p>
   </body>
 </html>
-`
+`;
 
 addEventListener('fetch', function(event) {
-  var init = { "status" : 200 , "headers": {"Content-Type": "text/html"}};
-  var res = new Response(html,init);
+  const init = { status: 200, headers: { 'Content-Type': 'text/html' } };
+  const res = new Response(html, init);
   event.respondWith(res);
 });

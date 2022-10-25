@@ -1,7 +1,7 @@
 'use strict';
 
 function returnPage() {
-let html = `
+  const html = `
 <html>
 <head>
 <title>LEB128</title>
@@ -31,7 +31,7 @@ function sleb128_encode(number) {
     let out = []
     while (true) {
         const i = Number( num & 0x7fn )
-        num >>= 7n; 
+        num >>= 7n;
         if ((isNegOne(num) && (i & 0x40) !== 0) ||
             (num === 0n && (i & 0x40) === 0)) {
             out.push(i)
@@ -136,18 +136,18 @@ function decode() {
             LEB128 编解码
         </h2>
         <p class="mt-4 text-gray-700">
-            LEB128 or Little Endian Base 128 is a variable-length code compression used to store arbitrarily large integers in a small number of bytes. 
+            LEB128 or Little Endian Base 128 is a variable-length code compression used to store arbitrarily large integers in a small number of bytes.
             LEB128 is used in the DWARF debug file format and the WebAssembly binary encoding for all integer literals.
         </p>
         <p class="mt-4 text-gray-700">
-            There are 2 versions of LEB128: unsigned LEB128 and signed LEB128. 
+            There are 2 versions of LEB128: unsigned LEB128 and signed LEB128.
             The decoder must know whether the encoded value is unsigned LEB128 or signed LEB128.
         </p>
         <div class="flex flex-col py-4">
             <form name="leb128" onsubmit="return false;">
             <div class="grid grid-cols-1 sm:grid-cols-7 mt-4 gap-4">
                 <div class="relative text-gray-800 border border-solid sm:col-span-6">
-                    <input type="text" name="text_enc" class="w-full px-3 py-2 outline-none" /> 
+                    <input type="text" name="text_enc" class="w-full px-3 py-2 outline-none" />
                 </div>
                 <div class="">
                     <button class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-blue-500 hover:bg-blue-700"
@@ -170,12 +170,12 @@ function decode() {
 
             <div class="grid grid-cols-1 sm:grid-cols-7 mt-4 gap-4">
                 <div class="relative text-gray-800 border border-solid sm:col-span-6">
-                    <input type="text" name="text_dec" class="w-full py-2 px-3 outline-none" /> 
+                    <input type="text" name="text_dec" class="w-full py-2 px-3 outline-none" />
                 </div>
                 <div class="">
                     <button class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-blue-500 hover:bg-blue-700"
                         name="btn_dec" onclick="decode()">
-                        Decode 
+                        Decode
                     </button>
                 </div>
             </div>
@@ -187,59 +187,55 @@ function decode() {
         基于 Noslate Workers 开发
     </p>
 </body>
-</html>`
-    return html;
-}
-
-async function doApp (code) {
-  return new Response(code, { "status": 200, "headers": {"Content-Type": "text/html"}})
+</html>`;
+  return html;
 }
 
 async function app(req) {
-    let reqUrl = new URL(req.url).pathname;
-    
-    if (reqUrl.startsWith(`/`)) {
-        if (req.method == 'GET') {
-            return new Response(returnPage(), {
-                "headers": {
-                    'Content-Type': 'text/html',
-                    'Access-Control-Allow-Origin': '*',
-                }
-            });
-        } else if (req.method == 'POST') {
-            const formData = await req.formData();
-            return new Response(returnPage(formData.get('url')), {
-                "headers": {
-                    'Content-Type': 'text/html',
-                    'Access-Control-Allow-Origin': '*',
-                }
-            });
-        }
-    } else {
-        return new Response([reqUrl, req.url].join('<br/>'), {
-            status: 404,
-            headers: {
-                'Content-Type': 'text/html',
-                'Access-Control-Allow-Origin': '*',
-            }
-        });
+  const reqUrl = new URL(req.url).pathname;
+
+  if (reqUrl.startsWith('/')) {
+    if (req.method === 'GET') {
+      return new Response(returnPage(), {
+        headers: {
+          'Content-Type': 'text/html',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    } else if (req.method === 'POST') {
+      const formData = await req.formData();
+      return new Response(returnPage(formData.get('url')), {
+        headers: {
+          'Content-Type': 'text/html',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
     }
+  } else {
+    return new Response([ reqUrl, req.url ].join('<br/>'), {
+      status: 404,
+      headers: {
+        'Content-Type': 'text/html',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  }
 }
 
 async function tryApp(req) {
-    let rsp;
-    try {
-        rsp = await app(req);
-    } catch (e) {
-        rsp = new Response(e.stack, {
-            status: 500,
-            headers: {
-                'Content-Type': 'text/html',
-                'Access-Control-Allow-Origin': '*',
-            }
-        });
-    }
-    return rsp;
+  let rsp;
+  try {
+    rsp = await app(req);
+  } catch (e) {
+    rsp = new Response(e.stack, {
+      status: 500,
+      headers: {
+        'Content-Type': 'text/html',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  }
+  return rsp;
 }
 
 addEventListener('fetch', event => {

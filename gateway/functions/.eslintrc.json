@@ -1,0 +1,8 @@
+{
+  "extends": "../.eslintrc.js",
+  "env": {
+    "browser": false,
+    "node": false,
+    "serviceworker": true
+  }
+}

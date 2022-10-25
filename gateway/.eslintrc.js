@@ -1,11 +1,10 @@
 'use strict';
-/* global module */
 
 module.exports = {
-  extends: '../build/.eslintrc.js',
+  extends: '../../build/.eslintrc.js',
   env: {
     browser: false,
-    node: false,
+    node: true,
     serviceworker: false,
   },
 };

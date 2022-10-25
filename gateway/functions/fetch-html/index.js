@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const url = 'https://noslate.midwayjs.org/';
 

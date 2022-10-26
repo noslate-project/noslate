@@ -145,7 +145,7 @@ curl http://127.0.0.1:9000/invoke -X POST -H 'x-noslated-dispatch: function:B' -
 ```
 另外，可以通过指定 `x-noslated-request-id` 来跟踪请求在 Noslated 的执行情况。
 
-NoslatedClient 提供了 `invoke` 和 `invokeService` 方法，用来处理不同调用类型，具体的方法签名可以查看 [API References](../../api/sdk.md)。
+NoslatedClient 提供了 `invoke` 和 `invokeService` 方法，用来处理不同调用类型，具体的方法签名可以查看 [API References](https://noslate-project.github.io/noslated/classes/NoslatedClient.html)。
 
 两个方法都接受流为入参，并返回流作为结果，因此可以直接使用 [Request](https://expressjs.com/en/4x/api.html#req) 和 [Response](https://expressjs.com/en/4x/api.html#res) 对象。
 

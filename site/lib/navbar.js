@@ -24,9 +24,18 @@ module.exports = [
     "position": "left"
   },
   {
-    "type": "doc",
-    "docId": "api/sdk",
+    "type": "dropdown",
     "label": "API References",
-    "position": "right"
-  }
+    "position": "right",
+    "items": [
+      {
+        "label": "NoslatedClient",
+        "href": "https://noslate-project.github.io/noslated/classes/NoslatedClient.html",
+      },
+      {
+        "label": "Aworker",
+        "href": "https://noslate-project.github.io/aworker/",
+      },
+    ],
+  },
 ]

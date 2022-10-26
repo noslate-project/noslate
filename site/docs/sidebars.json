@@ -69,22 +69,6 @@
       "href": "https://github.com/noslate-project/noslate/releases"
     }
   ],
-  "api": [
-    {
-      "type": "category",
-      "label": "Noslated",
-      "collapsed": false,
-      "collapsible": false,
-      "items": [
-        "api/sdk"
-      ]
-    },
-    {
-      "type": "link",
-      "label": "Aworker",
-      "href": "https://noslate-project.github.io/aworker/"
-    }
-  ],
   "node_js": [
     {
       "type": "doc",

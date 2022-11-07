@@ -7,6 +7,7 @@
 ```
 docker pull ghcr.io/noslate-project/noslate-gateway:build-44
 ```
+其中 **build-44** 为版本号，可以在[版本历史](https://github.com/noslate-project/noslate/pkgs/container/noslate)中检索。
 
 如果想定制镜像内容，可以继续阅读。
 

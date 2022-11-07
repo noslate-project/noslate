@@ -5,8 +5,8 @@ Noslate 可以通过 Docker 镜像的形式快速部署到已有的集群架构�
 ## 快速体验
 如果想直接在本地体验 Noslate，操作如下：
 ```
-docker pull ghcr.io/noslate-project/noslate-demo:0.0.1
-docker run -d ghcr.io/noslate-project/noslate-demo:0.0.1
+docker pull ghcr.io/noslate-project/noslate-gateway:build-44
+docker run -d ghcr.io/noslate-project/noslate-gateway:build-44
 ```
 
 如果想定制镜像内容，可以继续阅读。
@@ -15,15 +15,15 @@ docker run -d ghcr.io/noslate-project/noslate-demo:0.0.1
 接下来，我们以搭建示例镜像的过来，来演示如何定制镜像：
 
 ### 确定依赖镜像版本
-在[版本历史](noslate_workers/release_notes.md)中确认自己要使用的版本号，并在 Dockerfile 中引入：
+在[版本历史](https://github.com/noslate-project/noslate/pkgs/container/noslate)中确认自己要使用的版本号，并在 Dockerfile 中引入：
 ```
 ARG NOSLATE_VERSION
 
-FROM noslate:${NOSLATE_VERSION:-0.0.1}
+FROM ghcr.io/noslate-project/noslate:${NOSLATE_VERSION}
 ```
-以 0.0.1 为例，为了以后能方便的更新 Noslate，可以将版本作为一个构建参数传入，构建时指定：
+以 build-44 为例，为了以后能方便的更新 Noslate，可以将版本作为一个构建参数传入，构建时指定：
 ```
-docker build --build-arg NOSLATE_VERSION=0.0.1
+docker build --build-arg NOSLATE_VERSION=build-44
 ```
 ### 创建所需目录
 Noslate 镜像中已经将大部分所需目录创建完成，但日志文件目录并未创建，可以按照环境变量 **NOSLATE_LOGDIR** 指定的位置创建：

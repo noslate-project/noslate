@@ -5,7 +5,7 @@
 ## 快速体验
 可以参考[函数计算 - CustomContainer](https://help.aliyun.com/document_detail/179368.html)文档，将下面的镜像部署在函数计算中：
 ```
-docker pull ghcr.io/noslate-project/noslate-aliyunfc:0.0.1
+docker pull ghcr.io/noslate-project/noslate-gateway:build-44
 ```
 
 如果想定制镜像内容，可以继续阅读。
@@ -20,7 +20,7 @@ docker pull ghcr.io/noslate-project/noslate-aliyunfc:0.0.1
 ```
 ARG NOSLATE_VERSION
 
-FROM noslate:${NOSLATE_VERSION:-0.0.1}
+FROM ghcr.io/noslate-project/noslate:${NOSLATE_VERSION}
 ```
 
 如有自定义需求，可以参考[通过 Docker 部署 Noslate](noslate_workers/getting_started/aliyun_fc.md)。

@@ -5,9 +5,9 @@
 ## 快速体验
 可以参考[函数计算 - CustomContainer](https://help.aliyun.com/document_detail/179368.html)文档，将下面的镜像部署在函数计算中：
 ```
-docker pull ghcr.io/noslate-project/noslate-gateway:build-44
+docker pull ghcr.io/noslate-project/noslate-gateway:latest
 ```
-其中 **build-44** 为版本号，可以在[版本历史](https://github.com/noslate-project/noslate/pkgs/container/noslate)中检索。
+其中 **latest** 为版本号，可以在[版本历史](https://github.com/noslate-project/noslate/pkgs/container/noslate)中检索。
 
 如果想定制镜像内容，可以继续阅读。
 

@@ -11,7 +11,6 @@ Noslate is an elegant, modern and fully customizable serverless runtime.
 
 
 ### Components
-  
 
 * Aworker: Noslate JavaScript worker https://github.com/noslate-project/aworker
 
@@ -25,13 +24,9 @@ Noslate is an elegant, modern and fully customizable serverless runtime.
 
 * Arthur: Fast corefile generator https://github.com/noslate-project/arthur
 
-
 ### How to build
 
-1. Noslate project managed by Repo (a google-built repository management tool), so you can use repo cli get all repos easily. 
-    * Please refer to https://github.com/noslate-project/manifest
-2. Then you can use Noslate building infrastructure to build whole project or just a part.
-    * Please refer to https://github.com/noslate-project/build
+Check out [BUILDING.md](BUILDING.md) for more details.
 
 ### Noslate Project
 

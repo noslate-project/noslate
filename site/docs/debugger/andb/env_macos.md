@@ -48,12 +48,12 @@ andb loader enabled, please use 'andb' command to start debugging.
 
 采用 `gdb` 进行调试，并加载 core.pid 文件。
 ```bash
-andb -l -c core.pid
+andb -g -c core.pid
 ```
 
 采用 `lldb` 进行调试，并加载 core.pid 文件。
 ```bash
-andb -g -c core.<pid>
+andb -l -c core.<pid>
 ```
 
 ## 手动调式方法
